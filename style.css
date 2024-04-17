@@ -1372,6 +1372,12 @@ footer ul li + li {
     width: 80px;
     text-align: center;
 }
+.section_login label:hover {
+    background-color: var(--color-highlight-hover);
+}
+.section_login label:active {
+    background-color: var(--color-highlight-active);
+}
 .login_area {
     display: flex;
     flex-direction: column;
@@ -1400,6 +1406,12 @@ footer ul li + li {
     border: none;
     margin-top: 50px;
     cursor: pointer;
+}
+.login_area input[type="submit"]:hover {
+    background-color: var(--color-highlight-hover);
+}
+.login_area input[type="submit"]:active {
+    background-color: var(--color-highlight-active);
 }
 .login_area > a {
     text-decoration: none;
