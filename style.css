@@ -101,6 +101,9 @@ nav .nav_logo img {
     .navbar_menu a {
         padding: 10px 0;
     }
+    .navbar_menu a:last-child {
+        padding: 20px 0;
+    }
     #switch:checked ~ .hb span:nth-child(1) {
         transform: rotate(45deg);
         position: absolute;
