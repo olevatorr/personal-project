@@ -1375,6 +1375,7 @@ footer ul li + li {
     margin-top: 50px;
     width: 80px;
     text-align: center;
+    cursor: pointer;
 }
 .section_login label:hover {
     background-color: var(--color-highlight-hover);
