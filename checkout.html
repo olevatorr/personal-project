@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>關於Brood</title>
+    <link rel="icon" href="favicon_io/favicon-16x16.png">
+    <link rel="stylesheet" href="grid.css">
+    <!-- reset -->
+    <link rel="stylesheet" href="style.css">
+    <!-- style -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Doppio+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Doppio+One&family=Grandstander:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- google font -->
+    <script src="https://kit.fontawesome.com/3efa9d30d3.js" crossorigin="anonymous"></script>
+    <!-- font awesome -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <!-- gsap animation -->
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <div class="nav_logo">
+                    <a href="index.html"><img src="img/logo.png" alt="Brood寵物醫療用品"></a>
+                </div>
+                <input type="checkbox" name="" id="switch">
+                <label class="hb" for="switch">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+                <ul class="navbar_menu">
+                    <li>
+                        <a href="productlist.html">寵物用品</a>
+                        <label for="sub_pet_switch">
+                            <input type="checkbox" name="" id="sub_pet_switch">
+                            ▼
+                        </label>
+                        <ul class="submenu">
+                            <li><a href="productlist.html">狗狗用品</a></li>
+                            <li><a href="productlist.html">貓咪用品</a></li>
+                            <li><a href="productlist.html">保健食品</a></li>
+                            <li><a href="productlist.html">特價專區</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="index.html">醫療項目</a>
+                        <label for="sub_health_switch">
+                            <input type="checkbox" name="" id="sub_health_switch">
+                            ▼
+                        </label>
+                        <ul class="submenu">
+                            <li><a href="videocall_reservation.html">視訊診療預約</a></li>
+                            <li><a href="hospitalinfo.html">附近院所查詢</a></li>
+                            <li><a href="emergencyl_reservation.html">24HR急診服務</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="aboutus.html">關於我們</a></li>
+                    <li><a href="login.html">登入</a></li>
+                    <li>
+                        <a class="signin" href="#">會員註冊</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <section class="section_cartlist">
+        <div class="container">
+            <h2>購物車明細</h2>
+            <div class="row">
+                <div class="col-6">
+                    <ol class="row">
+                        <li class="cart_list col-12">
+                            <div class="item_pic">
+                                <img src="img/checkout_item01.png" alt="">
+                            </div>
+                            <div class="item_info">
+                                <h4>絨絨寵物床</h4>
+                                <h5>規格: 70*90公分</h5>
+                                <span>NT$ 300</span>
+                            </div>
+                            <div class="item_qty">
+                                數量:
+                                <div class="qty">
+                                    1
+                                </div>
+                            </div>
+                            <div class="item_price">
+                                NT$ 300
+                            </div>
+                        </li>
+                        <li class="cart_list col-12">
+                            <div class="item_pic">
+                                <img src="img/checkout_item01.png" alt="">
+                            </div>
+                            <div class="item_info">
+                                <h4>絨絨寵物床</h4>
+                                <h5>規格: 70*90公分</h5>
+                                <span>NT$ 300</span>
+                            </div>
+                            <div class="item_qty">
+                                數量:
+                                <div class="qty">
+                                    1
+                                </div>
+                            </div>
+                            <div class="item_price">
+                                NT$ 300
+                            </div>
+                        </li>
+                        <li class="cart_list col-12">
+                            <div class="item_pic">
+                                <img src="img/checkout_item01.png" alt="">
+                            </div>
+                            <div class="item_info">
+                                <h4>絨絨寵物床</h4>
+                                <h5>規格: 70*90公分</h5>
+                                <span>NT$ 300</span>
+                            </div>
+                            <div class="item_qty">
+                                數量:
+                                <div class="qty">
+                                    1
+                                </div>
+                            </div>
+                            <div class="item_price">
+                                NT$ 300
+                            </div>
+                        </li>
+                        <li class="cart_list col-12">
+                            <div class="item_pic">
+                                <img src="img/checkout_item01.png" alt="">
+                            </div>
+                            <div class="item_info">
+                                <h4>絨絨寵物床</h4>
+                                <h5>規格: 70*90公分</h5>
+                                <span>NT$ 300</span>
+                            </div>
+                            <div class="item_qty">
+                                數量:
+                                <div class="qty">
+                                    1
+                                </div>
+                            </div>
+                            <div class="item_price">
+                                NT$ 300
+                            </div>
+                        </li>
+                        <li class="cart_list col-12">
+                            <div class="item_pic">
+                                <img src="img/checkout_item01.png" alt="">
+                            </div>
+                            <div class="item_info">
+                                <h4>絨絨寵物床</h4>
+                                <h5>規格: 70*90公分</h5>
+                                <span>NT$ 300</span>
+                            </div>
+                            <div class="item_qty">
+                                數量:
+                                <div class="qty">
+                                    1
+                                </div>
+                            </div>
+                            <div class="item_price">
+                                NT$ 300
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+                <div class="col-6">
+                    <div class="row">
+
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="item_amount">
+                <span>共 5 樣商品</span>
+                <span>總金額 : NT$ 2,370</span>
+            </div>
+            <div class="item_checkout">
+                <a href="productlist.html">再逛逛</a>
+                <input type="submit" value="結帳去">
+            </div>
+        </div>
+    </section>
+    <section class="section_other_list">
+        <div class="container">
+            <h2>其他產品</h2>
+            <div class="row row-cols-5">
+                <div class="col">
+                    <div class="item">
+                        <div class="item_pic">
+                            <img src="img/item_img.png" alt="">
+                        </div>
+                        <h4>IQ DOG 聰明狗乾糧</h4>
+                        <ul>
+                            <li>#成幼犬</li>
+                            <li>#1.5KG</li>
+                            <li>#多口味</li>
+                        </ul>
+                        <div class="item_bottom">
+                            <div class="pirce">
+                                NT$ 999
+                            </div>
+                            <i class="fa-solid fa-cart-plus"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="item">
+                        <div class="item_pic">
+                            <img src="img/item_img.png" alt="">
+                        </div>
+                        <h4>IQ DOG 聰明狗乾糧</h4>
+                        <ul>
+                            <li>#成幼犬</li>
+                            <li>#1.5KG</li>
+                            <li>#多口味</li>
+                        </ul>
+                        <div class="item_bottom">
+                            <div class="pirce">
+                                NT$ 999
+                            </div>
+                            <i class="fa-solid fa-cart-plus"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="item">
+                        <div class="item_pic">
+                            <img src="img/item_img.png" alt="">
+                        </div>
+                        <h4>IQ DOG 聰明狗乾糧</h4>
+                        <ul>
+                            <li>#成幼犬</li>
+                            <li>#1.5KG</li>
+                            <li>#多口味</li>
+                        </ul>
+                        <div class="item_bottom">
+                            <div class="pirce">
+                                NT$ 999
+                            </div>
+                            <i class="fa-solid fa-cart-plus"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="item">
+                        <div class="item_pic">
+                            <img src="img/item_img.png" alt="">
+                        </div>
+                        <h4>IQ DOG 聰明狗乾糧</h4>
+                        <ul>
+                            <li>#成幼犬</li>
+                            <li>#1.5KG</li>
+                            <li>#多口味</li>
+                        </ul>
+                        <div class="item_bottom">
+                            <div class="pirce">
+                                NT$ 999
+                            </div>
+                            <i class="fa-solid fa-cart-plus"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="item">
+                        <div class="item_pic">
+                            <img src="img/item_img.png" alt="">
+                        </div>
+                        <h4>IQ DOG 聰明狗乾糧</h4>
+                        <ul>
+                            <li>#成幼犬</li>
+                            <li>#1.5KG</li>
+                            <li>#多口味</li>
+                        </ul>
+                        <div class="item_bottom">
+                            <div class="pirce">
+                                NT$ 999
+                            </div>
+                            <i class="fa-solid fa-cart-plus"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <div class="footer_info">
+                <div class="footer_logo">
+                    <a href="index.html"><img src="img/logo.png" alt=""></a>
+                </div>
+                <ul>
+                    <li><a href="aboutus.html">關於我們</a></li>
+                    <li><a href="#">聯絡我們</a></li>
+                    <li><a href="#">購物須知</a></li>
+                    <li><a href="#">醫療須知</a></li>
+                    <li class="social_icon">
+                        <img src="img/icon_facebook.svg" alt="">
+                        <img src="img/icon_instagram.svg" alt="">
+                        <img src="img/icon_google.svg" alt="">
+                    </li>
+                </ul>
+            </div>
+            <div class=" footer_copyright">
+                &copy;2024 Brood Pet Group
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>關於Brood</title>
+    <link rel="icon" href="favicon_io/favicon-16x16.png">
+    <link rel="stylesheet" href="grid.css">
+    <!-- reset -->
+    <link rel="stylesheet" href="style.css">
+    <!-- style -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Doppio+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Doppio+One&family=Grandstander:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- google font -->
+    <script src="https://kit.fontawesome.com/3efa9d30d3.js" crossorigin="anonymous"></script>
+    <!-- font awesome -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <!-- gsap animation -->
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <div class="nav_logo">
+                    <a href="index.html"><img src="img/logo.png" alt="Brood寵物醫療用品"></a>
+                </div>
+                <input type="checkbox" name="" id="switch">
+                <label class="hb" for="switch">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+                <ul class="navbar_menu">
+                    <li>
+                        <a href="productlist.html">寵物用品</a>
+                        <label for="sub_pet_switch">
+                            <input type="checkbox" name="" id="sub_pet_switch">
+                            ▼
+                        </label>
+                        <ul class="submenu">
+                            <li><a href="productlist.html">狗狗用品</a></li>
+                            <li><a href="productlist.html">貓咪用品</a></li>
+                            <li><a href="productlist.html">保健食品</a></li>
+                            <li><a href="productlist.html">特價專區</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="index.html">醫療項目</a>
+                        <label for="sub_health_switch">
+                            <input type="checkbox" name="" id="sub_health_switch">
+                            ▼
+                        </label>
+                        <ul class="submenu">
+                            <li><a href="videocall_reservation.html">視訊診療預約</a></li>
+                            <li><a href="hospitalinfo.html">附近院所查詢</a></li>
+                            <li><a href="emergencyl_reservation.html">24HR急診服務</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="aboutus.html">關於我們</a></li>
+                    <li><a href="login.html">登入</a></li>
+                    <li>
+                        <a class="signin" href="#">會員註冊</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header> 
+    <section class="section_videocall_banner">
+        <div class="container">
+            <div class="videocall_pic">
+                <img src="img/videocall_banner.png" alt="">
+            </div>
+        </div>
+    </section>
+    <section class="section_video_reserve_info">
+        <div class="container">
+            <div class="video_reserve_type">
+                <h2>視訊診療預約</h2>
+                <div class="pet_type">
+                    <label class="pet_type_dog">
+                        <input type="radio" name="pet_type" id="pet_type_dog">
+                        汪星人
+                    </label>
+                    <label class="pet_type_cat">
+                        <input type="radio" name="pet_type" id="pet_type_cat">
+                        喵星人
+                    </label>
+                </div>
+            </div>
+            <div class="pet_info">
+                <h2>基本資料</h2>
+                <form class="pet_info_input">
+                    <div class="pet_basis_info">
+                        <div class="input">寵物名字<input type="text" required="required" id="pet_name" ></div>
+                        <div class="input">寵物生日<input type="date" required="required" id="pet_birth"></div>
+                        <div class="input">寵物品種<input type="text" placeholder="若不清楚可填米克斯" required="required" id="pet_variety"></div>
+                    </div>
+                    <div class="pet_vaccine_info">
+                        <div class="radio">
+                            是否有晶片<input type="radio" name="chip" id="chip_true" value="是">是<input type="radio" name="chip" id="chip_false" value="否">否
+                        </div>
+                        <div class="radio">
+                            一個月內是否接種過疫苗<input type="radio" name="vaccine" id="vaccine_true">是<input type="radio" name="vaccine" id="vaccine_false">否
+                        </div>
+                    </div>
+                    <div class="pet_pic_info">
+                        請提供1~3張照片，可清晰看見寵物狀況或傷口狀況(非必要):
+                        <input type="file" name="pet_pic" id="pet_pic" accept="image/*">
+                        <input type="file" name="pet_pic" id="pet_pic" accept="image/*">
+                        <input type="file" name="pet_pic" id="pet_pic" accept="image/*">
+                    </div>
+                    <div class="pet_desc_info">
+                        請填寫至以下表格，並盡所能描述寵物狀況以利醫師更快速掌握
+                        <textarea name="pet_desc" id="pet_desc" maxlength="1000" placeholder="最長可輸入1000字...."></textarea>
+                    </div>
+                    <div class="pet_info_check">
+                        <div class="radio">
+                            <input type="radio" name="" id=""> 是否同意儲存此次資料至您的帳號
+                        </div>
+                        <div class="radio">
+                            <input type="radio" name="" id=""> 是否已經詳讀以下須知
+                        </div>
+                        <textarea name="disclaimer" id="disclaimer" cols="30" rows="10" readonly>
+-預約須知-
+1.  技術準備： 在預約視訊診療之前，確保您的設備（如電腦、平板電腦或智能手機）和網絡連接正常運作。測試攝像頭、麥克風和網絡連接，以確保通信暢順。
+2.  隱私保護： 視訊診療涉及敏感信息的傳輸，請確保您處於安全的環境並保護個人隱私。選擇私密且無干擾的地方進行診療，並確保您的設備和網絡連接是安全的。
+3.  準備問題： 在診療前準備一份寵物的病史、症狀描述和問題清單。這將幫助您在診療中更清晰地表達您的關注和問題，並確保獲得最準確的診斷和治療建議。
+4.  環境準備： 為寵物創造一個安靜、無干擾的環境，以確保診療過程順利進行。考慮使用寵物的喜愛玩具或零食來幫助他們保持安靜和冷靜。
+5.  跟隨指示： 在視訊診療過程中，請仔細聽取醫師的建議和指示。確保您理解診療計劃和治療建議，並按照醫師的指示進行後續的行動和治療。
+6.  預約後續： 如果醫師建議您需要進一步的診療或檢查，請及時預約並按時前往動物醫院。及時治療對於寵物的健康至關重要，請不要拖延或忽視醫師的建議。
+
+免責聲明： 視訊診療僅提供初步的診斷和治療建議，可能無法取代面對面的實地診療。在某些情況下，醫師可能會建議您前往動物醫院進行進一步的評估和治療。本公司不對視訊診療過程中由於技術問題或其他不可抗力因素引起的任何錯誤或延誤負責。
+                        </textarea>
+                    </div>
+                    <div class="submit">
+                        <input type="submit" value="立即預約">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <div class="footer_info">
+                <div class="footer_logo">
+                    <a href="index.html"><img src="img/logo.png" alt=""></a>
+                </div>
+                <ul>
+                    <li><a href="aboutus.html">關於我們</a></li>
+                    <li><a href="#">聯絡我們</a></li>
+                    <li><a href="#">購物須知</a></li>
+                    <li><a href="#">醫療須知</a></li>
+                    <li class="social_icon">
+                        <img src="img/icon_facebook.svg" alt="">
+                        <img src="img/icon_instagram.svg" alt="">
+                        <img src="img/icon_google.svg" alt="">
+                    </li>
+                </ul>
+            </div>
+            <div class=" footer_copyright">
+                &copy;2024 Brood Pet Group
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

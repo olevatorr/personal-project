@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brood寵物醫療用品</title>
+    <link rel="icon" href="favicon_io/favicon-16x16.png">
+    <link rel="stylesheet" href="grid.css">
+    <!-- reset -->
+    <link rel="stylesheet" href="style.css">
+    <!-- style -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Doppio+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Doppio+One&family=Grandstander:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- google font -->
+    <script src="https://kit.fontawesome.com/3efa9d30d3.js" crossorigin="anonymous"></script>
+    <!-- font awesome -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <!-- gsap animation -->
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <div class="nav_logo">
+                    <a href="index.html"><img src="img/logo.png" alt="Brood寵物醫療用品"></a>
+                </div>
+                <input type="checkbox" name="" id="switch">
+                <label class="hb" for="switch">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+                <ul class="navbar_menu">
+                    <li>
+                        <a href="productlist.html">寵物用品</a>
+                        <label for="sub_pet_switch">
+                            <input type="checkbox" name="" id="sub_pet_switch">
+                            ▼
+                        </label>
+                        <ul class="submenu">
+                            <li><a href="productlist.html">狗狗用品</a></li>
+                            <li><a href="productlist.html">貓咪用品</a></li>
+                            <li><a href="productlist.html">保健食品</a></li>
+                            <li><a href="productlist.html">特價專區</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="index.html">醫療項目</a>
+                        <label for="sub_health_switch">
+                            <input type="checkbox" name="" id="sub_health_switch">
+                            ▼
+                        </label>
+                        <ul class="submenu">
+                            <li><a href="videocall_reservation.html">視訊診療預約</a></li>
+                            <li><a href="hospitalinfo.html">附近院所查詢</a></li>
+                            <li><a href="emergencyl_reservation.html">24HR急診服務</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="aboutus.html">關於我們</a></li>
+                    <li><a href="login.html">登入</a></li>
+                    <li>
+                        <a class="signin" href="#">會員註冊</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <section class="section_banner">
+        <div class="container">
+            <div class="row">
+                    <div class="col-12 col-md-6 col-lg-5">
+                        <h1>
+                            滿足毛孩<br>
+                            無微不至的需求。
+                        </h1>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-2">
+                        <a href="productlist.html">立即購物</a>
+                    </div>
+            </div>
+        </div>
+    </section>
+    <section class="section_health_service">
+        <div class="container">
+            <div class="row">
+                    <div class="col-12 col-md-4">
+                        <div class="health_card">
+                            <div class="icon">
+                                <img src="img/icon_video call.svg" alt="">
+                            </div>
+                            <h3>視訊診療預約</h3>
+                            <p>即時專業寵物醫療服務，全天候照顧您的寵物。</p>
+                            <a href="videocall_reservation.html">立即預約</a>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <div class="health_card">
+                            <div class="icon">
+                                <img src="img/icon_hospital.svg" alt="">
+                            </div>
+                            <h3>附近院所查詢</h3>
+                            <p>附近寵物醫院輕鬆找，就在您身邊。</p>
+                            <a href="hospitalinfo.html">立即查詢</a>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <div class="health_card">
+                            <div class="icon">
+                                <img src="img/icon_emergency.svg" alt="">
+                            </div>
+                            <h3>24HR急診服務</h3>
+                            <p>寵物24小時急診，隨時為您的寵物提供醫療照顧。</p>
+                            <a href="emergencyl_reservation.html">立即掛號</a>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </section>
+    <section class="section_slogan">
+        <div class="container">
+            <div class="slogan_logo">
+                <img src="img/logo.png" alt="">
+            </div>
+            <h1>
+                綜合寵物服務<br>
+                專業寵物醫療與豐富用品，罐頭、飼料、寵物用品一應俱全
+            </h1>
+        </div>
+    </section>
+    <section class="section_why_us">
+        <div class="container">
+            <div class="row">
+                    <div class="col-12 col-md-4">
+                        <div class="card">
+                            <div class="icon">
+                                <img src="img/icon_care.svg" alt="">
+                            </div>
+                            <h3>用心關懷</h3>
+                            <p>我們將用心關懷每一位客戶和他們的寵物，提供最佳的服務。</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <div class="card">
+                            <div class="icon">
+                                <img src="img/icon_warrenty.svg" alt="">
+                            </div>
+                            <h3>專業保障</h3>
+                            <p>我們提供專業的醫療服務，保障您寵物的健康。</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <div class="card">
+                            <div class="icon">
+                                <img src="img/icon_quality.svg" alt="">
+                            </div>
+                            <h3>品質產品</h3>
+                            <p>我們承諾提供優質、安全的產品，確保您的寵物得到最佳的照顧。</p>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </section>
+    <section class="section_service_info">
+        <div class="container">
+            <h2>服務介紹</h2>
+            <div class="row row-cols-1 row-cols-md-3 row-cols-lg-5">
+                <div class="col">
+                    <div class="service_info_card row">
+                        <div class="col-6 col-md-12 col-lg-12">
+                            <div class="pic">
+                                <img src="img/service_info_pet food supplies.png" alt="">
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-12 col-lg-12">
+                            <div class="service_info">
+                                <h4>多樣寵物用品</h4>
+                                <p>在我們的網站上，您可以找到各種寵物用品，包括食品、玩具、床舖等，滿足您寵物的各種需求。我們提供方便的購物體驗，讓您輕鬆選購所需商品。  </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="service_info_card row">
+                        <div class="col-6 col-md-12 col-lg-12">
+                            <div class="pic">
+                                <img src="img/service_info_reservation.png" alt="">
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-12 col-lg-12">
+                            <div class="service_info">
+                                <h4>24小時急診預約</h4>
+                                <p>我們提供24小時急診預約服務，讓您可以在緊急情況下即時預約寵物醫療服務。無論是晚上還是假日，我們隨時為您提供專業的醫療支援，確保您的寵物健康。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="service_info_card row">
+                        <div class="col-6 col-md-12 col-lg-12">
+                            <div class="pic">
+                                <img src="img/service_info_video call.png" alt="">
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-12 col-lg-12">
+                            <div class="service_info">
+                                <h4>視訊診療服務</h4>
+                                <p>通過我們的視訊診療服務，您可以與我們的專業獸醫進行即時線上諮詢。這使您無需前往動物醫院，即可獲得專業的醫療建議和治療方案，為您的寵物提供即時幫助。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="service_info_card row">
+                        <div class="col-6 col-md-12 col-lg-12">
+                            <div class="pic">
+                                <img src="img/service_info_knowledge.png" alt="">
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-12 col-lg-12">
+                            <div class="service_info">
+                                <h4>健康資訊分享</h4>
+                                <p>我們提供專業的寵物健康資訊，涵蓋飼養、營養、健康問題等方面。這些資訊有助於您更好地了解如何照顧您的寵物，預防和處理可能出現的健康問題，讓您的寵物始終保持健康和快樂。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="service_info_card row">
+                        <div class="col-6 col-md-12 col-lg-12">
+                            <div class="pic">
+                                <img src="img/service_info_news.png" alt="">
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-12 col-lg-12">
+                            <div class="service_info">
+                                <h4>最新消息與促銷</h4>
+                                <p>我們定期更新最新消息和促銷活動，讓您第一時間了解公司的動態和優惠。無論是新產品推出、特價優惠還是健康資訊分享，我們都將及時通知您，讓您不會錯過任何重要信息。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section_shopping">
+        <div class="container">
+            <h2>購物導覽</h2>
+            <div class="row">
+                    <div class="col-4">
+                        <button>
+                            <a href="productlist.html">
+                                <h3>貓咪用品</h3>
+                                <img src="img/icon_shopinng_cat.svg" alt="">
+                            </a>
+                        </button>
+                    </div>
+                    <div class="col-4">
+                        <button>
+                            <a href="productlist.html">
+                                <h3>特價專區</h3>
+                                <img src="img/icon_shopinng_discount.svg" alt="">
+                            </a>
+                        </button>
+                    </div>
+                    <div class="col-4">
+                        <button>
+                            <a href="productlist.html">
+                                <h3>狗狗用品</h3>
+                                <img src="img/icon_shopinng_dog.svg" alt="">
+                            </a>
+                        </button>
+                    </div>
+            </div>
+        </div>
+    </section>
+    <section class="section_limit_sale">
+        <div class="container">
+            <h2>限時特賣</h2>
+            <div class="limit_sale_object">
+                <div class="limit_sale_info">
+                    <div class="row">
+                        <div class="col-4 col-lg-3">
+                            <div class="item_pic">
+                                <img src="img/limit_sale_item img.png" alt="">
+                            </div>
+                        </div>
+                        <div class="col-5 col-lg-6">
+                            <div class="item_name">
+                                <h3>IQ DOG聰明狗乾糧</h3>
+                                <span>#成幼犬</span>
+                                <span>#1.5kg</span>
+                                <span>#多口味</span>
+                            </div>
+                        </div>
+                        <div class="price col-3 col-lg-3">
+                            <span>$699</span>
+                        </div>
+                    </div>
+                    <div class="limit_sale_timer">
+                        <h5>限時特賣倒數</h5>
+                        <div class="timer">
+                            <div class="num day">2</div>
+                            <div class="timer_unit">DAYS</div>
+                        </div>
+                        <div class="timer">
+                            <div class="num hour">9</div>
+                            <div class="timer_unit">HOURS</div>
+                        </div>
+                        <div class="timer">
+                            <div class="num minute">11</div>
+                            <div class="timer_unit">MINUTES</div>
+                        </div>
+                        <div class="timer">
+                            <div class="num second">23</div>
+                            <div class="timer_unit">SECONDS</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section_news">
+        <div class="container">
+            <h2>最新消息</h2>
+            <div class="row">
+                <div class="col-12 col-md-4 col-lg-3">
+                    <div class="news_card">
+                        <div class="row">
+                            <div class="col-6 col-md-12">
+                                <div class="news_pic">
+                                    <img src="img/news_booking.png" alt="">
+                                </div>
+                            </div>
+                            <div class="news_content col-6 col-md-12">
+                                <div class="row">
+                                    <div class="col-12 col-md-4">
+                                        <div class="news_date">
+                                            <div class="date">
+                                                18
+                                            </div>
+                                            <div class="month_year">
+                                                Apr 2024
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-8">
+                                        <div class="news_title">
+                                            <h4>最新技術：Brood視訊診療現已開放預約！</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 col-lg-3">
+                    <div class="news_card">
+                        <div class="row">
+                            <div class="col-6 col-md-12">
+                                <div class="news_pic">
+                                    <img src="img/news_discount.png" alt="">
+                                </div>
+                            </div>
+                            <div class="news_content col-6 col-md-12">
+                                <div class="row">
+                                    <div class="col-12 col-md-4">
+                                        <div class="news_date">
+                                            <div class="date">
+                                                10
+                                            </div>
+                                            <div class="month_year">
+                                                Apr 2024
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-8">
+                                        <div class="news_title">
+                                            <h4>優惠活動：春日特賣，限時優惠給您的毛小孩！</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 col-lg-3">
+                    <div class="news_card">
+                        <div class="row">
+                            <div class="col-6 col-md-12">
+                                <div class="news_pic">
+                                    <img src="img/news_knowledge.png" alt="">
+                                </div>
+                            </div>
+                            <div class="news_content col-6 col-md-12">
+                                <div class="row">
+                                    <div class="col-12 col-md-4">
+                                        <div class="news_date">
+                                            <div class="date">
+                                                2
+                                            </div>
+                                            <div class="month_year">
+                                                Apr 2024
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-8">
+                                        <div class="news_title">
+                                            <h4>健康提示：如何預防春季寵物過敏？</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 col-lg-3">
+                    <div class="news_card">
+                        <div class="row">
+                            <div class="col-6 col-md-12">
+                                <div class="news_pic">
+                                    <img src="img/news_new food.png" alt="">
+                                </div>
+                            </div>
+                            <div class="news_content col-6 col-md-12">
+                                <div class="row">
+                                    <div class="col-12 col-md-4">
+                                        <div class="news_date">
+                                            <div class="date">
+                                                28
+                                            </div>
+                                            <div class="month_year">
+                                                Mar 2024
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-8">
+                                        <div class="news_title">
+                                            <h4>新產品推出：Brood美味罐頭飼料現已上市！</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section_ceo">
+        <div class="container">
+            <h2>院長介紹</h2>
+            <div class="row">
+                    <div class="col-12 col-md-5">
+                        <div class="ceo_pic">
+                            <img src="img/ceo.png" alt="">
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-7">
+                        <h4>動物醫院院長資歷：</h4>
+                        <ol class="ceo_exp_list">
+                            <li>
+                                學術背景：
+                                <ul>
+                                    <li>獸醫學學士學位，取得於知名大學或獸醫學院。</li>
+                                    <li>獸醫學碩士或博士學位，專業領域包括動物內科、外科或相關專業。</li>
+                                </ul>
+                            </li>
+                            <li>
+                                專業認證：
+                                <ul>
+                                    <li>擁有合法註冊的執業獸醫師證書，符合當地相關法規和標準。</li>
+                                </ul>
+                            </li>
+                            <li>
+                                經驗和能力：
+                                <ul>
+                                    <li>至少10年以上的獸醫臨床經驗，包括在動物醫院或診所的實踐和管理。</li>
+                                    <li>具有出色的臨床技術和手術技能，能夠處理各種緊急情況和複雜手術。</li>
+                                    <li>具有卓越的領導和管理能力，能夠指導和激勵團隊，確保動物醫院的運營順利。</li>
+                                </ul>
+                            </li>
+                            <li>
+                                責任和承諾：
+                                <ul>
+                                    <li>對動物醫療事業的責任和承諾，始終以動物的福祉和健康為首要考量。</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+            </div>
+        </div>
+    </section>
+    <section class="section_subscribe">
+        <div class="container">
+                <div class="subscribe_card">
+                <div class="subscribe_info">
+                    <h3>不要錯過任何最新寵物資訊和優惠活動</h3>
+                    <p>寵物新知識的第一手消息和任何檔期優惠或限時促銷活動</p>
+                    <div class="subscribe_enter">
+                        <input type="email" placeholder="輸入您的電子信箱">
+                        <button><a href="#">馬上訂閱</a></button>
+                    </div>
+                    <p>www.BroodPetNews.com</p>
+                </div>
+                <div class="subscribe_pic">
+                    <img src="img/subscribe.png" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <div class="footer_info">
+                <div class="footer_logo">
+                    <a href="index.html"><img src="img/logo.png" alt=""></a>
+                </div>
+                <ul>
+                    <li><a href="aboutus.html">關於我們</a></li>
+                    <li><a href="#">聯絡我們</a></li>
+                    <li><a href="#">購物須知</a></li>
+                    <li><a href="#">醫療須知</a></li>
+                    <li class="social_icon">
+                        <img src="img/icon_facebook.svg" alt="">
+                        <img src="img/icon_instagram.svg" alt="">
+                        <img src="img/icon_google.svg" alt="">
+                    </li>
+                </ul>
+            </div>
+            <div class=" footer_copyright">
+                &copy;2024 Brood Pet Group
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
