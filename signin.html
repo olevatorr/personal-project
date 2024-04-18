@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>關於Brood</title>
+    <link rel="icon" href="favicon_io/favicon-16x16.png">
+    <link rel="stylesheet" href="grid.css">
+    <!-- reset -->
+    <link rel="stylesheet" href="style.css">
+    <!-- style -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Doppio+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Doppio+One&family=Grandstander:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- google font -->
+    <script src="https://kit.fontawesome.com/3efa9d30d3.js" crossorigin="anonymous"></script>
+    <!-- font awesome -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <!-- gsap animation -->
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <div class="nav_logo">
+                    <a href="index.html"><img src="img/logo.png" alt="Brood寵物醫療用品"></a>
+                </div>
+                <input type="checkbox" name="" id="switch">
+                <label class="hb" for="switch">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+                <ul class="navbar_menu">
+                    <li>
+                        <a href="productlist.html">寵物用品</a>
+                        <label for="sub_pet_switch">
+                            <input type="checkbox" name="" id="sub_pet_switch">
+                            ▼
+                        </label>
+                        <ul class="submenu">
+                            <li><a href="productlist.html">狗狗用品</a></li>
+                            <li><a href="productlist.html">貓咪用品</a></li>
+                            <li><a href="productlist.html">保健食品</a></li>
+                            <li><a href="productlist.html">特價專區</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="index.html">醫療項目</a>
+                        <label for="sub_health_switch">
+                            <input type="checkbox" name="" id="sub_health_switch">
+                            ▼
+                        </label>
+                        <ul class="submenu">
+                            <li><a href="videocall_reservation.html">視訊診療預約</a></li>
+                            <li><a href="hospitalinfo.html">附近院所查詢</a></li>
+                            <li><a href="emergencyl_reservation.html">24HR急診服務</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="aboutus.html">關於我們</a></li>
+                    <li><a href="login.html">登入</a></li>
+                    <li>
+                        <a class="signin" href="signin.html">會員註冊</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <section class="section_signin">
+        <div class="container">
+            <div class="row">
+                <form class="signin_area col-7">
+                    <div class="logo_pic">
+                        <a href="index.html"><img src="img/logo.png" alt=""></a>
+                    </div>
+                    <div class="signin_input">
+                        <p>帳號</p>
+                        <input type="text" placeholder="請輸入6碼或以上數字加英文帳號" required>
+                    </div>
+                    <div class="signin_input">
+                        <p>密碼</p>
+                        <input type="password" placeholder="請輸入6碼或以上數字加英文密碼" required>
+                    </div>
+                    <div class="signin_input">
+                        <p>姓名</p>
+                        <input type="text" placeholder="請輸入真實姓名" required>
+                    </div>
+                    <div class="signin_input">
+                        <p>電話</p>
+                        <input type="tel" pattern="[0][9][0-9]{8}" placeholder="09開頭共10碼" required>
+                    </div>
+                    <div class="signin_input">
+                        <p>生日</p>
+                        <input type="date"  required>
+                    </div>
+                    <div class="signin_input">
+                        <p>電子信箱</p>
+                        <input type="email" placeholder="請輸入電子信箱" required>
+                    </div>
+                    <div class="signin_input">
+                        <p>收件地址</p>
+                        <input type="text" placeholder="請輸入收件地址" required>
+                    </div>
+                    <input type="submit" value="立即註冊">
+                    <span>其他方式註冊</span>
+                    <div class="signin_via_oth">
+                        <a href=""><img src="img/icon_google_color.svg" alt=""></a>
+                        <a href=""><img src="img/icon_fb.svg" alt=""></a>
+                        <a href=""><img src="img/icon_line.svg" alt=""></a>
+                    </div>
+                </form>
+                <div class="signin_img col-5">
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <div class="footer_info">
+                <div class="footer_logo">
+                    <a href="index.html"><img src="img/logo.png" alt=""></a>
+                </div>
+                <ul>
+                    <li><a href="aboutus.html">關於我們</a></li>
+                    <li><a href="#">聯絡我們</a></li>
+                    <li><a href="#">購物須知</a></li>
+                    <li><a href="#">醫療須知</a></li>
+                    <li class="social_icon">
+                        <img src="img/icon_facebook.svg" alt="">
+                        <img src="img/icon_instagram.svg" alt="">
+                        <img src="img/icon_google.svg" alt="">
+                    </li>
+                </ul>
+            </div>
+            <div class=" footer_copyright">
+                &copy;2024 Brood Pet Group
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
