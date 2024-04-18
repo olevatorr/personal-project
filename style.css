@@ -440,8 +440,8 @@ section h2 {
     border-radius: 5px;
     box-shadow: 0px 4px 10px #00000040;
     padding: 10px 40px;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
     position: relative;
 }
 .limit_sale_timer h5 {
@@ -452,22 +452,26 @@ section h2 {
     color: #fff;
 }
 .limit_sale_timer .timer {
-    margin-top: 40px;
+    margin: 40px 0 20px 0;
     text-align: center;
-    margin-bottom: 20px;
+    position: relative;
 }
 .limit_sale_timer .num {
     font-family: "doppio one";
     color: #fff;
     font-size: 4rem;
-    position: relative;
     margin-bottom: 5px;
 }
-.timer + .timer .num::before {
+.timer + .timer::before {
     content: ':';
     color: #fff;
     position: absolute;
-    left: -50%;
+    font-family: "doppio one";
+    font-size: 4rem;
+    font-weight: bold;
+    top: 50%;
+    left: 0;
+    transform: translate(-50%,-80%);
 }
 .timer .timer_unit {
     color: #fff;
@@ -656,9 +660,6 @@ footer ul li + li {
     .timer .num {
         font-size: 8rem;
     }
-    .timer + .timer .num::before {
-        left: -100%;
-    }
     .timer_unit {
         font-size: 2rem;
     }
@@ -794,9 +795,6 @@ footer ul li + li {
     }
     .timer {
         margin: 0 30px;
-    }
-    .timer + .timer .num::before {
-        left: -170%;
     }
     .news_card {
         cursor: pointer;
