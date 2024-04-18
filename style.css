@@ -245,10 +245,12 @@ section h2 {
 .section_banner .row {
     padding: 200px 0;
 }
-.section_banner h1 {
+.section_banner p {
     color: #fff;
+    font-size: 3.5rem;
     font-weight: bold;
     letter-spacing: .3rem;
+    line-height: 6rem;
     margin: 20px 20px 20px 0px;
 }
 .section_banner a {
@@ -714,6 +716,9 @@ footer ul li + li {
     }
     .section_banner a:active {
         background-color: var(--color-highlight-active);
+    }
+    .section_banner p {
+        font-size: 4.5rem;
     }
     .section_health_service .health_card a:hover {
         background-color: var(--color-highlight-hover);
