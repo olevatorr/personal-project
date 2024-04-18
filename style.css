@@ -259,7 +259,7 @@ section h2 {
     align-items: center;
     padding: 20px;
     background-color: #fff;
-    box-shadow: 2px 2px 10px #ccc;
+    box-shadow: 2px 2px 15px #393939;
     margin-bottom: 20px;
     padding: 50px 20px;
     flex-grow: 1;
@@ -313,7 +313,11 @@ section h2 {
     text-align: center;
 }
 .section_why_us .card {
-    margin: 30px 0;
+    display: flex;
+    flex-direction: column;
+}
+.section_why_us .card .icon {
+    height: 130px;
 }
 .section_why_us h3 {
     font-size: 2.4rem;
@@ -499,7 +503,6 @@ section h2 {
 }
 .section_subscribe .subscribe_card {
     background-color: #68D1E7;
-    border-radius: 10px;
     padding: 50px 50px;
     display: flex;
     align-items: center;
@@ -519,26 +522,19 @@ section h2 {
     justify-content: space-between;
     background-color: #fff;
     margin: 20px 0;
-    border-radius: 5px;
 }
 .section_subscribe .subscribe_info input {
     padding: 10px 0px 10px 10px;
     border: none;
-    border-radius: 5px 0px 0px 5px;
     letter-spacing: .2rem;
     outline: none;
-}
-.section_subscribe .subscribe_info button {
-    border: none;
-    background-color: #fff;
-    border-radius: 0px 5px 5px 0px;
 }
 .section_subscribe .subscribe_info a {
     background-color: #68D1E7;
     font-size: .6rem;
     text-decoration: none;
+    margin: 3px;
     padding: 8px 8px;
-    border-radius: 2px;
     line-height: 2rem;
 }
 .section_subscribe .subscribe_pic img {
