@@ -259,7 +259,7 @@ section h2 {
     align-items: center;
     padding: 20px;
     background-color: #fff;
-    box-shadow: 2px 2px 15px #393939;
+    box-shadow: 1px 1px 5px #393939;
     margin-bottom: 20px;
     padding: 50px 20px;
     flex-grow: 1;
