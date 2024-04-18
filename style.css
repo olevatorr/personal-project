@@ -749,7 +749,7 @@ footer ul li + li {
         transition: 1s;
     }
     .section_health_service .health_card {
-        box-shadow: 1px 1px 5px #393939;
+        box-shadow: 1px 1px 5px #ababab;
     }
     .section_service_info .service_info_card:hover .pic{
         filter: brightness(1);
