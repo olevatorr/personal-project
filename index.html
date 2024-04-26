@@ -20,9 +20,10 @@
     <!-- font awesome -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <!-- gsap animation -->
+    <script src="index.js"></script>
 </head>
 <body>
-    <header>
+    <header id="nav_bar">
         <nav>
             <div class="container">
                 <div class="nav_logo">
@@ -70,31 +71,23 @@
         </nav>
     </header>
     <section class="section_banner">
-        <div class="video">
-            <video src="video/index.mp4" autoplay loop muted></video>
-        </div> 
-        <div class="container">
-            <div class="row">
-                    <div class="col-12 col-md-6 col-lg-5">
-                        <p>
-                            滿足毛孩<br>
-                            無微不至的需求。
-                        </p>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-2">
-                        <a href="productlist.html">立即購物</a>
-                    </div>
+        <div class="banner_video">
+            <video src="video/index.mp4" autoplay  muted preload="auto" loop  playsinline></video>
+            <div class="banner_txt">
+                <p>
+                    滿足毛孩<br>
+                    無微不至的需求。
+                </p>
+                <a href="productlist.html">立即購物</a>
             </div>
-        </div>
+        </div> 
     </section>
     <section class="section_health_service">
         <div class="container">
-            <div class="row">
+            <div class="row" id="health_list">
                     <div class="col-12 col-md-4">
                         <div class="health_card">
-                            <div class="icon">
-                                <img src="img/icon_video call.svg" alt="">
-                            </div>
+                            <i class="fa-solid fa-headset"></i>
                             <h3>視訊診療預約</h3>
                             <p>即時專業寵物醫療服務，全天候照顧您的寵物。</p>
                             <a href="videocall_reservation.html">立即預約</a>
@@ -102,9 +95,7 @@
                     </div>
                     <div class="col-12 col-md-4">
                         <div class="health_card">
-                            <div class="icon">
-                                <img src="img/icon_hospital.svg" alt="">
-                            </div>
+                            <i class="fa-solid fa-hospital"></i>
                             <h3>附近院所查詢</h3>
                             <p>附近寵物醫院輕鬆找，就在您身邊。</p>
                             <a href="hospitalinfo.html">立即查詢</a>
@@ -112,9 +103,7 @@
                     </div>
                     <div class="col-12 col-md-4">
                         <div class="health_card">
-                            <div class="icon">
-                                <img src="img/icon_emergency.svg" alt="">
-                            </div>
+                            <i class="fa-solid fa-square-h"></i>
                             <h3>24HR急診服務</h3>
                             <p>寵物24小時急診，隨時為您的寵物提供醫療照顧。</p>
                             <a href="emergencyl_reservation.html">立即掛號</a>
@@ -125,7 +114,7 @@
     </section>
     <section class="section_slogan">
         <div class="container">
-            <div class="slogan_logo">
+            <div class="slogan_logo" id="slogan_logo">
                 <img src="img/logo.png" alt="">
             </div>
             <h1>
@@ -136,30 +125,24 @@
     </section>
     <section class="section_why_us">
         <div class="container">
-            <div class="row">
+            <div class="row whyUsCards">
                     <div class="col-12 col-md-4">
                         <div class="card">
-                            <div class="icon">
-                                <img src="img/icon_care.svg" alt="">
-                            </div>
+                            <i class="fa-solid fa-hand-holding-heart"></i>
                             <h3>用心關懷</h3>
                             <p>我們將用心關懷每一位客戶和他們的寵物，提供最佳的服務。</p>
                         </div>
                     </div>
                     <div class="col-12 col-md-4">
                         <div class="card">
-                            <div class="icon">
-                                <img src="img/icon_warrenty.svg" alt="">
-                            </div>
+                            <i class="fa-solid fa-user-shield"></i>
                             <h3>專業保障</h3>
                             <p>我們提供專業的醫療服務，保障您寵物的健康。</p>
                         </div>
                     </div>
                     <div class="col-12 col-md-4">
                         <div class="card">
-                            <div class="icon">
-                                <img src="img/icon_quality.svg" alt="">
-                            </div>
+                            <i class="fa-solid fa-medal"></i>
                             <h3>品質產品</h3>
                             <p>我們承諾提供優質、安全的產品，確保您的寵物得到最佳的照顧。</p>
                         </div>
@@ -306,19 +289,19 @@
                     <div class="limit_sale_timer">
                         <h5>限時特賣倒數</h5>
                         <div class="timer">
-                            <div class="num day">2</div>
+                            <div class="num day" id="timerDay">2</div>
                             <div class="timer_unit">DAYS</div>
                         </div>
                         <div class="timer">
-                            <div class="num hour">9</div>
+                            <div class="num hour" id="timerHour">9</div>
                             <div class="timer_unit">HOURS</div>
                         </div>
                         <div class="timer">
-                            <div class="num minute">11</div>
+                            <div class="num minute" id="timerMin">11</div>
                             <div class="timer_unit">MINUTES</div>
                         </div>
                         <div class="timer">
-                            <div class="num second">23</div>
+                            <div class="num second" id="timerSec">23</div>
                             <div class="timer_unit">SECONDS</div>
                         </div>
                     </div>
