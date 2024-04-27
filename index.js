@@ -1,54 +1,75 @@
-window.addEventListener('scroll', function () {
-    let scrollInit = 0;
+window.addEventListener('load',function(){
+    let sectionBanner = document.querySelector('#secBanner');
+    let bannerPos = sectionBanner.offsetTop;
+    window.addEventListener('scroll', function(){
+        aosNav();
+        aosHealthCards();
+        aosSloganLogo();
+        aosWhyUsIcons()
+    })
+})
+
+
+
+
+function aosNav() {
     let navBar = document.getElementById("nav_bar");
-    if (window.scrollY === scrollInit) {
+    if (window.scrollY === 0) {
         navBar.style.backgroundColor = "rgba(0,0,0,0)";
     } else {
         navBar.style.backgroundColor = "#fff";
     }
-}, false);
+};
 
-window.addEventListener('scroll', function () {
+
+function aosHealthCards() {
     if (window.scrollY > 50) {
         document.getElementById("health_list").style.transform = "translateY(-50%)";
     } else {
         document.getElementById("health_list").style.transform = "translateY(0)";
     }
-}, false);
+};
 
-
-
-window.addEventListener('scroll', function () {
+function aosSloganLogo(){
     const sloganLogo = document.querySelector('#slogan_logo');
+    let secSloganPos = document.querySelector('.section_slogan').getBoundingClientRect().top;
+    let secSloganPosY = secSloganPos + window.scrollY;
     let currScroll = window.scrollY;
-    let scrollDiff = scrollY - 990;
-    if (currScroll > 990 && currScroll <= 1300) {
-        sloganLogo.style.position = 'relative';
+    let scrollDiff = scrollY - secSloganPosY;
+    // 定義作用起始點
+
+    let sloganTxtPos = document.querySelector('#sloganTxt').getBoundingClientRect().top;
+    let sloganTxtPosY = sloganTxtPos + window.scrollY + 100;
+    let scrollEnd = sloganTxtPosY - secSloganPosY
+    // 定義作用終點
+
+    if (currScroll > secSloganPosY && currScroll <= sloganTxtPosY) {
         sloganLogo.style.top = `${scrollDiff}px`;
-    } else if (currScroll > 1300) {
-        sloganLogo.style.top = "310px";
+    } else if (currScroll > sloganTxtPosY) {
+        sloganLogo.style.top = `${scrollEnd}px`;
     } else {
-        sloganLogo.style.position = 'static';
-        sloganLogo.style.top = '';
+        sloganLogo.style.top = '0';
     }
-}, false)
+}
 
 
-window.addEventListener('scroll', function(){
-    const whyUsCard = document.querySelectorAll('.whyUsCards .card');
-    if (scrollY < 1145) {
-        for (let j = 0; j<whyUsCard.length; j++) {
-            whyUsCard[j].style.transform = 'translateY(200px)';
-            console.log(whyUsCard[j].style.transform);
+
+function aosWhyUsIcons(){
+    const whyUsCard = document.querySelectorAll('.section_slogan .card');
+    let sloganTxtPos = document.querySelector('#sloganTxt').getBoundingClientRect().top;
+    let sloganTxtPosY = sloganTxtPos + window.scrollY - 100;
+    if (scrollY > sloganTxtPosY) {
+        for (let i = 0; i<whyUsCard.length; i++) {
+            setTimeout(function(){
+                whyUsCard[i].style.transform = 'translateY(100px)';
+            },500*i)
         }
     } else {
-        for (let i = 0; i<whyUsCard.length; i++) {
-            setInterval(function(){
-                whyUsCard[i].style.transform = 'unset';
-            },500*i)
-            console.log(whyUsCard[i].style.transform);
+        for (let j = 0; j<whyUsCard.length; j++) {
+            whyUsCard[j].style.transform = 'translateY(300px)';
+        }
     }
-}},false)
+}
 // -------------------------------------AOS
 
 
