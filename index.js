@@ -10,11 +10,12 @@ window.addEventListener('load',function(){
         aosWhyUsIcons();
     })
     // service info carousel
-    let interval = setInterval(run, 2000);
+    let interval = setInterval(run, 3000);
     document.querySelector('#serNext').onclick = serNextImg;
+    changeImg();
     function resetInterval(){
         clearInterval(interval);
-        interval = setInterval(run, 2000);
+        interval = setInterval(run, 3000);
     }
     function serNextImg(){
         num++;
@@ -27,6 +28,15 @@ window.addEventListener('load',function(){
         changeImg();
         resetInterval();
     }
+    let serPageTag = document.querySelectorAll('.serTags');
+    for (let i = 0; i<serPageTag.length; i++){
+        serPageTag[i].onclick =  function (){
+        let pageNum =  Array.prototype.indexOf.call(serPageTag, this)
+        num = pageNum;
+        changeImg();
+        resetInterval();
+    }}
+    
 
 })
 // -------------------------------------AOS
@@ -71,6 +81,7 @@ function aosSloganLogo(){
     }
 }
 
+
 function aosWhyUsIcons(){
     const whyUsCard = document.querySelectorAll('.section_slogan .card');
     let sloganTxtPos = document.querySelector('#sloganTxt').getBoundingClientRect().top;
@@ -87,7 +98,6 @@ function aosWhyUsIcons(){
         }
     }
 }
-
 
 
 // -------------------------------------Service_info
@@ -121,7 +131,7 @@ function changeImg(){
     const serTitle = document.querySelector('#serTitle');
     const serDesc = document.querySelector('#serDesc');
 
-    const serPageTag = document.querySelectorAll('.serTags')
+    let serPageTag = document.querySelectorAll('.serTags')
 
     if (num > serImgs.length - 1){
         num = 0;
@@ -137,7 +147,6 @@ function changeImg(){
     serDesc.innerText = serContent[num].desc;
     serImgs[num].style.opacity = '1';
     serPageTag[num].classList.add('serHighlight');
-    console.log(serPageTag[num].innerText);
 }
 
 function run(){
@@ -156,21 +165,27 @@ function serHide(){
     secSerInfo.style.visibility = 'hidden'
 }
 
+// function selectNum(e){
+//     let num = e.target.innerText;
+//     console.log(num);
+//     document.querySelectorAll('.serTag span').indexOf(num);
+//     console.log(document.querySelectorAll('.serTag span').indexOf(num))
+// }
 
 
 // -------------------------------------timer
 setInterval(function(){
     const curTime = new Date();
-    let secDiff = 60 - curTime.getSeconds();
+    let secDiff = 59 - curTime.getSeconds();
     document.querySelector('#timerSec').innerText = secDiff;
     // second
-    let minDiff = 60 - curTime.getMinutes();
+    let minDiff = 59 - curTime.getMinutes();
     document.querySelector('#timerMin').innerText = minDiff;
     // minute
-    let hourDiff = 24 - curTime.getHours();
+    let hourDiff = 23 - curTime.getHours();
     document.querySelector('#timerHour').innerText = hourDiff;
     // hour
-    let dayDiff = 31 - curTime.getDay();
+    let dayDiff = 30 - curTime.getDay();
     document.querySelector('#timerDay').innerText = dayDiff;
     // day
 },1000);

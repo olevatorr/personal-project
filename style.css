@@ -71,7 +71,7 @@ nav .nav_logo img {
 [type="checkbox"] {
     display: none;
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1023px) {
     nav .hb {
         width: 40px;
         display: flex;
@@ -145,7 +145,7 @@ nav .nav_logo img {
         transition: .3s;
     }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
     #switch:checked ~ .navbar_menu {
         display: flex;
     }
@@ -171,14 +171,30 @@ nav .nav_logo img {
         display: none;
     }
     nav .navbar_menu .submenu {
-        padding-top: 30px;
         position: absolute;
+        padding-top: 40px;
         width: 150px;
         top: 100%;
-        left: 0;
+        left: -5%;
         transition: 0s;
         display: none;
     }
+    nav .navbar_menu .submenu::before {
+        content: '';
+        height: 20px;
+        width: 20px;
+        background-color: #fff;
+        position: absolute;
+        top: 30px;
+        left: 20%;
+        rotate: 45deg;
+    }
+    nav .navbar_menu .submenu li {
+        background-color: #fff;
+        text-align: center;
+        margin: 0 10px;
+    }
+    
     nav .navbar_menu .submenu a {
         padding: 10px 5px;
     }
@@ -198,7 +214,6 @@ nav .nav_logo img {
     }
     li:hover > .submenu {
         display: block;
-        background-color: #fff;
     }
 }
 nav .navbar_menu a {
@@ -210,7 +225,6 @@ nav .navbar_menu a {
     margin-left: 10px;
     line-height: 2rem;
     display: flex;
-    background-color: #fff;
 }
 .navbar_menu .submenu li a {
     flex-grow: 1;
@@ -256,13 +270,14 @@ section h2 {
 .section_banner video {
     clip-path: inset(0px);
 }
-@media screen and (max-width: 767px){
+@media screen and (max-width: 1130px) {
     .section_banner {
         max-width: 100%;
         overflow: hidden;
     }
     .section_banner .banner_video {
         height: 100vh;
+        width: 100%;
         margin: auto;
         display: flex;
         justify-content: center;
@@ -271,19 +286,20 @@ section h2 {
         height: 100%;
     }
 }
-
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1131px) {
     .section_banner .banner_video {
         padding-bottom: 56.25%;
         position: relative;
         height: 0;
     }
     .section_banner video {
+        width: 100%;
         top: 0;
         left: 0;
         max-width: 100%;
         height: auto;
         position: absolute;
+
     }
 }
 .section_banner p {
@@ -304,6 +320,11 @@ section h2 {
 }
 .section_health_service .col-12 {
     display: flex;
+}
+#health_list {
+    position: relative;
+    transition: .7s;
+    z-index: 1;
 }
 .section_health_service .health_card {
     display: flex;
@@ -404,7 +425,19 @@ section h2 {
 }
 .service_content {
     text-align: center;
-    padding: 50px 0;
+    padding: 10px 0;
+}
+@media screen and (min-width: 768px) {
+    .service_content {
+        padding: 50px 0;
+    }
+}
+.section_service_info {
+    padding-top: 250px;
+    position: relative;
+    transform: translateY(200px);
+    visibility: hidden;
+    transition: .7s;
 }
 .section_service_info h2 {
     margin-bottom: 50px;
@@ -418,6 +451,7 @@ section h2 {
 }
 .service_carousel_control i {
     font-size: 1.6rem;
+    margin: 10px 0;
 }
 #serTitle {
     font-size: 2.8rem;
@@ -435,23 +469,26 @@ section h2 {
     margin: 50px;
     transition: .5s;
 }
-.section_service_info {
-    padding-top: 250px;
-    position: relative;
-    transform: translateY(200px);
-    visibility: hidden;
-    transition: .7s;
-}
 #serTag {
     display: grid;
     grid-template-columns: repeat(5, 20%);
+    align-items: center;
 }
 .serTag span {
     font-size: 1.6rem;
-    margin: 10px 20px;
+    margin: 0 20px;
     color: var(--color-black-font);
+    font-weight: bold;
+    transition: .5s;
+    cursor: pointer;
 }
-.serHighlight {
+.serTag span:hover {
+    color: var(--color-highlight-hover);
+}
+.serTag span:active {
+    color: var(--color-highlight-active);
+}
+.serTag .serHighlight {
     font-size: 3rem;
     color: var(--color-highlight-active);
 }
@@ -467,42 +504,72 @@ section h2 {
 #serNext, #serLast {
     cursor: pointer;
 }
+#serNext:hover, #serLast:hover {
+    color: var(--color-highlight-hover);
+}
+#serNext:active, #serLast:active {
+    color: var(--color-highlight-active);
+}
 .section_service_info .service_carousel .pic img {
-    height: 100%;
     position: absolute;
-    top: 0;
+    width: 100%;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
     opacity: 0;
     transition: .5s;
+    display: none;
+}
+@media screen and (min-width: 1024px) {
+    .section_service_info .service_carousel .pic img {
+        display: unset;
+    }
+}
+@media screen and (min-width: 1200px) {
+    .section_service_info .service_carousel .pic img {
+        height: 100%;
+    }
 }
 .picTitle {
     position: absolute;
     top: 10px;
     left: 20px;
 }
-.section_shopping button {
-    width: 100%;
-    border: none;
-    padding: 15px 15px;
-    background-color: #fff;
-}
-.section_shopping button a {
+
+.section_shopping a {
     text-decoration: none;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 40px;
+    color: var(--color-highlight);
+    font-size: 2.4rem;
+    background-color: #fff;
+    padding: 30px 20px;
+    transition: .2s;
 }
-.section_shopping button h3 {
-    letter-spacing: .3rem;
-    color: var(--color-black-font);
+.section_shopping a i {
+    transition: .2s;
+}
+.section_shopping a:hover {
+    color: #fff;
+    background-color: var(--color-highlight-hover);
+    i {
+        scale: 1.5;
+    }
+}
+.section_shopping a:active {
+    color: #fff;
+    background-color: var(--color-highlight-active);
+    i {
+        scale: 1.5;
+    }
 }
 .section_limit_sale {
     padding: 25px 0 125px 0;
 }
 .section_limit_sale .limit_sale_object {
-    background-color: var(--color-highlight);
+    background-color: var(--color-highlight-hover);
     border-radius: 10px;
     padding: 10px;
     margin: 0 100px;
@@ -596,12 +663,11 @@ section h2 {
     letter-spacing: .2rem;
 }
 .news_date .date {
-    font-family: "Grandstander", cursive;
     font-size: 4rem;
+    font-weight: bold;
 }
 .news_date .month_year {
     display: inline-block;
-    font-family: "Grandstander", cursive;
     font-size: 2rem;
     background-color: #68D1E7;
     padding: 5px 5px;
@@ -666,6 +732,7 @@ section h2 {
     border: none;
     letter-spacing: .2rem;
     outline: none;
+    flex-grow: 2;
 }
 .section_subscribe .subscribe_info a {
     background-color: #68D1E7;
@@ -749,11 +816,7 @@ footer ul li + li {
     .section_health_service {
         padding: 0;
     }
-    #health_list {
-        position: relative;
-        transition: .7s;
-        z-index: 1;
-    }
+
     .section_health_service .health_card p {
         text-align: center;
         line-height: 2.5rem;
@@ -852,28 +915,7 @@ footer ul li + li {
         90% {background-color: #fccfcf;}
         100% {background-color: #ffeded;}
     }
-    .section_shopping button {
-        overflow: hidden;
-        transition: .3s
-    }
-    .section_shopping button h3 {
-        transition: .3s
-    }
-    .section_shopping button img {
-        transition: .3s
-    }
-    .section_shopping button:hover {
-        background-color: var(--color-highlight);
-        & h3 {
-            color: #fff;
-            font-weight: bold;
-            transform: translateY(45%);
-            scale: 1.2;
-        }
-        & img {
-            transform: translateY(200%);
-        }
-    }
+
     .limit_sale_object {
         cursor: pointer;
     }
