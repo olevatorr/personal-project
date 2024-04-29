@@ -1,13 +1,33 @@
 
 window.addEventListener('load',function(){
+    // ---------AOS
     let sectionBanner = document.querySelector('#secBanner');
     let bannerPos = sectionBanner.offsetTop;
     window.addEventListener('scroll', function(){
         aosNav();
         aosHealthCards();
         aosSloganLogo();
-        aosWhyUsIcons()
+        aosWhyUsIcons();
     })
+    // service info carousel
+    let interval = setInterval(run, 2000);
+    document.querySelector('#serNext').onclick = serNextImg;
+    function resetInterval(){
+        clearInterval(interval);
+        interval = setInterval(run, 2000);
+    }
+    function serNextImg(){
+        num++;
+        changeImg();
+        resetInterval();
+    }
+    document.querySelector('#serLast').onclick = serLastImg;
+    function serLastImg(){
+        num--;
+        changeImg();
+        resetInterval();
+    }
+
 })
 // -------------------------------------AOS
 function aosNav() {
@@ -39,13 +59,15 @@ function aosSloganLogo(){
     let sloganTxtPosY = sloganTxtPos + window.scrollY + 100;
     let scrollEnd = sloganTxtPosY - secSloganPosY
     // 定義作用終點
-
+    
     if (currScroll > secSloganPosY && currScroll <= sloganTxtPosY) {
         sloganLogo.style.top = `${scrollDiff}px`;
     } else if (currScroll > sloganTxtPosY) {
         sloganLogo.style.top = `${scrollEnd}px`;
+        serShow();
     } else {
         sloganLogo.style.top = '0';
+        serHide();
     }
 }
 
@@ -65,6 +87,9 @@ function aosWhyUsIcons(){
         }
     }
 }
+
+
+
 // -------------------------------------Service_info
 let serContent = [
     {
@@ -89,7 +114,47 @@ let serContent = [
     },
 ]
 
+let num = 0;
+// 設定輪播初始值
+function changeImg(){
+    const serImgs = document.querySelectorAll('.section_service_info .service_carousel .pic img');
+    const serTitle = document.querySelector('#serTitle');
+    const serDesc = document.querySelector('#serDesc');
 
+    const serPageTag = document.querySelectorAll('.serTags')
+
+    if (num > serImgs.length - 1){
+        num = 0;
+    } else if (num < 0) {
+        num = serImgs.length -1;
+    }
+
+    for(let i = 0; i<serImgs.length; i++){
+        serImgs[i].style.opacity = 0;
+        serPageTag[i].classList.remove('serHighlight')
+    }
+    serTitle.innerText = serContent[num].title;
+    serDesc.innerText = serContent[num].desc;
+    serImgs[num].style.opacity = '1';
+    serPageTag[num].classList.add('serHighlight');
+    console.log(serPageTag[num].innerText);
+}
+
+function run(){
+    changeImg();
+    num++
+}
+
+function serShow(){
+    let secSerInfo = document.querySelector('.section_service_info')
+    secSerInfo.style.transform = 'translateY(0px)'
+    secSerInfo.style.visibility = 'unset'
+}
+function serHide(){
+    let secSerInfo = document.querySelector('.section_service_info')
+    secSerInfo.style.transform = 'translateY(200px)'
+    secSerInfo.style.visibility = 'hidden'
+}
 
 
 
