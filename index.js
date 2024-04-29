@@ -1,3 +1,4 @@
+
 window.addEventListener('load',function(){
     let sectionBanner = document.querySelector('#secBanner');
     let bannerPos = sectionBanner.offsetTop;
@@ -8,10 +9,7 @@ window.addEventListener('load',function(){
         aosWhyUsIcons()
     })
 })
-
-
-
-
+// -------------------------------------AOS
 function aosNav() {
     let navBar = document.getElementById("nav_bar");
     if (window.scrollY === 0) {
@@ -20,7 +18,6 @@ function aosNav() {
         navBar.style.backgroundColor = "#fff";
     }
 };
-
 
 function aosHealthCards() {
     if (window.scrollY > 50) {
@@ -52,8 +49,6 @@ function aosSloganLogo(){
     }
 }
 
-
-
 function aosWhyUsIcons(){
     const whyUsCard = document.querySelectorAll('.section_slogan .card');
     let sloganTxtPos = document.querySelector('#sloganTxt').getBoundingClientRect().top;
@@ -70,11 +65,35 @@ function aosWhyUsIcons(){
         }
     }
 }
-// -------------------------------------AOS
+// -------------------------------------Service_info
+let serContent = [
+    {
+        title: "多樣寵物用品",
+        desc: "在我們的網站上，您可以找到各種寵物用品，包括食品、玩具、床舖等，滿足您寵物的各種需求。我們提供方便的購物體驗，讓您輕鬆選購所需商品。",
+    },
+    {
+        title: "24小時急診預約",
+        desc: "我們提供24小時急診預約服務，讓您可以在緊急情況下即時預約寵物醫療服務。無論是晚上還是假日，我們隨時為您提供專業的醫療支援，確保您的寵物健康。",
+    },
+    {
+        title: "視訊診療服務",
+        desc: "通過我們的視訊診療服務，您可以與我們的專業獸醫進行即時線上諮詢。這使您無需前往動物醫院，即可獲得專業的醫療建議和治療方案，為您的寵物提供即時幫助。",
+    },
+    {
+        title: "健康資訊分享",
+        desc: "我們提供專業的寵物健康資訊，涵蓋飼養、營養、健康問題等方面。這些資訊有助於您更好地了解如何照顧您的寵物，預防和處理可能出現的健康問題，讓您的寵物始終保持健康和快樂。",
+    },
+    {
+        title: "最新消息與促銷",
+        desc: "我們定期更新最新消息和促銷活動，讓您第一時間了解公司的動態和優惠。無論是新產品推出、特價優惠還是健康資訊分享，我們都將及時通知您，讓您不會錯過任何重要信息。",
+    },
+]
 
 
 
 
+
+// -------------------------------------timer
 setInterval(function(){
     const curTime = new Date();
     let secDiff = 60 - curTime.getSeconds();
@@ -90,5 +109,3 @@ setInterval(function(){
     document.querySelector('#timerDay').innerText = dayDiff;
     // day
 },1000);
-
-// -------------------------------------timer

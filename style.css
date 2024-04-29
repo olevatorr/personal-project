@@ -354,7 +354,7 @@ section h2 {
     z-index: 100;
 }
 .section_slogan .container {
-    padding: 0;
+    padding: 20px;
     max-width: 700px;
     text-align: center;
     position: relative;
@@ -367,9 +367,6 @@ section h2 {
     justify-content: center;
     align-items: center;
     position: relative;
-}
-.whyUs_list {
-    /* padding-top: 300px; */
 }
 .section_slogan .slogan_logo img {
     height: 100px;
@@ -386,7 +383,7 @@ section h2 {
     flex-direction: column;
     transition: 1s;
     transform: translateY(300px);
-
+    margin-top: 20px;
 }
 .section_slogan .card i {
     margin: 20px 0px;
@@ -396,7 +393,7 @@ section h2 {
 .section_slogan h3 {
     font-size: 2.4rem;
     letter-spacing: .15rem;
-    color: var(--color-highlight);
+    color: var(--color-highlight-active);
     margin: 20px 0;
 }
 .section_slogan p {
@@ -404,31 +401,56 @@ section h2 {
     letter-spacing: .2rem;
     line-height: 3rem;
 }
-.section_service_info .pic {
-    overflow: hidden;
+.service_content {
+    text-align: center;
+    padding: 50px 0;
 }
-.section_service_info .pic img {
-    width: 100%;
-    vertical-align: top;
+.service_slideshow_control {
+    display: flex;
+    justify-content: center;
+    gap: 150px;
+    margin: 15px 0;
 }
-.section_service_info .service_info {
-    line-height: 2em;
+.service_slideshow_control i {
+    font-size: 3rem;
 }
-.service_info_card {
-    margin-bottom: 20px;
+#serTitle {
+    font-size: 2.8rem;
+    font-weight: bold;
+    letter-spacing: .3rem;
+    margin: 20px 0;
+    color: var(--color-highlight-active);
 }
-.section_service_info h4 {
-    display: block;
-    font-size: 2rem;
-    color: var(--color-highlight);
-    letter-spacing: .2rem;
-    margin-bottom: 20px;
+#serDesc {
+    text-align: center;
+    letter-spacing: .3rem;
+    text-indent: 2.6em;
+    line-height: 4rem;
+    margin: 50px;
 }
-.section_service_info p {
-    display: block;
-    font-size: 1.6rem;
-    letter-spacing: .2rem;
-    line-height: 2.4rem;
+.section_service_info {
+    padding-top: 250px;
+}
+.service_carousel {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.service_slideshow {
+    flex-grow: 2;
+    position: relative;
+}
+.section_service_info .service_slideshow .pic img {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.picTitle {
+    position: absolute;
+    top: 10px;
+    left: 20px;
 }
 .section_shopping button {
     width: 100%;
@@ -715,9 +737,6 @@ footer ul li + li {
     .limit_sale_info .price span {
         font-size: 7rem;
     }
-    .service_info_card h4 {
-        margin-top: 20px;
-    }
     .timer .num {
         font-size: 8rem;
     }
@@ -803,37 +822,6 @@ footer ul li + li {
         80% {background-color: #ff7979;}
         90% {background-color: #fccfcf;}
         100% {background-color: #ffeded;}
-    }
-    /* .section_service_info .container {
-        background-image: url(img/service_info_background\ bottom.png);
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: right top;
-        } */
-    .service_info {
-        text-align: center;
-    }
-    .section_service_info .service_info h4 {
-        color : #fff;
-        transform: translateY(500%);
-        transition : .5s
-    }
-    .section_service_info .service_info_card .pic {
-        filter: brightness(40%);
-        transform: translateY(100%);
-        transition: 1s;
-    }
-    .section_health_service .health_card {
-        box-shadow: 1px 1px 5px #ababab;
-    }
-    .section_service_info .service_info_card:hover .pic{
-        filter: brightness(1);
-        transform: translateY(0%);
-    }
-    .section_service_info .service_info_card:hover h4 {
-        transform: translateY(0%);
-        color: var(--color-highlight);
-        font-weight: bold;
     }
     .section_shopping button {
         overflow: hidden;
