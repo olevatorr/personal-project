@@ -253,7 +253,12 @@ section h2 {
     font-weight: bold;
     letter-spacing: 2rem;
     text-align: center;
-    margin-bottom: 100px;
+    margin-bottom: 30px;
+}
+@media screen and (min-width: 768px) {
+    section h2 {
+        margin-bottom: 100px;
+    }
 }
 .section_banner {
     padding: 0;
@@ -568,58 +573,81 @@ section h2 {
 .section_limit_sale {
     padding: 25px 0 125px 0;
 }
+@media screen and (min-width: 1024px) {
+    .section_limit_sale .container {
+        padding: 0 150px;
+    }
+}
 .section_limit_sale .limit_sale_object {
     background-color: var(--color-highlight-hover);
     border-radius: 10px;
     padding: 10px;
-    margin: 0 100px;
+    margin: 0 10%;
 }
 .section_limit_sale h2 {
     margin-bottom: 100px;
 }
+.timer_header {
+    margin: 0;
+}
 .section_limit_sale .item_pic {
-    height: 100px;
+    height: 100%;
     position: relative;
 }
 .section_limit_sale .item_pic img {
+    height: auto;
+    width: 100%;
     position: absolute;
-    height: 15rem;
     bottom: 0;
-    left: 25%;
+    left: 50%;
+    transform: translateX(-50%);
 }
 .section_limit_sale .item_name {
     color: #fff;
-    line-height: 30px;
-    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     & h3 {
+        text-align: center;
         letter-spacing: .15rem;
-        margin-top: 10px;
+        font-weight: bold;
+        margin: 10px 0;
+        font-size: 3vw;
+        width: 100%;
     }
 }
-.section_limit_sale .item_name span {
-    font-size: 1.2rem;
+.item_name_tag {
+    margin: 5px 0;
 }
+.section_limit_sale .item_name span {
+    font-size: 2vw;
+} 
 .section_limit_sale .item_name span + span {
     margin-left: 5px;
 }
+@media screen and (min-width: 768px) {
+    .section_limit_sale .item_name span + span {
+        margin-left: 15px;
+    }
+    .section_limit_sale .item_name_tag {
+        margin-bottom: 20px;
+    }
+}
 .section_limit_sale .price {
-    padding: 10px 5px;
-    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .section_limit_sale .price span {
     font-family: "Do Hyeon", sans-serif;
-    font-size: 3rem;
+    font-size: 8vw;
     color: #fff;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 }
 .limit_sale_timer {
     background-color: #000;
     border-radius: 5px;
     box-shadow: 0px 4px 10px #00000040;
-    padding: 10px 40px;
+    padding: 10px 10px;
     display: grid;
     grid-template-columns: repeat(4, 25%);
     position: relative;
@@ -627,10 +655,24 @@ section h2 {
 .limit_sale_timer h5 {
     position: absolute;
     top: 15px;
-    left: 40px;
+    left: 10px;
     font-weight: bold;
     color: #fff;
 }
+@media screen and (min-width: 768px) {
+    .limit_sale_timer {
+        padding: 10px 40px;
+    }
+    .limit_sale_timer h5 {
+        left: 40px;
+    }
+}
+@media screen and (min-width: 768px) {
+    .section_limit_sale h2 {
+        margin-bottom: 100px;
+    }
+}
+
 .limit_sale_timer .timer {
     margin: 40px 0 20px 0;
     text-align: center;
@@ -822,10 +864,6 @@ footer ul li + li {
         line-height: 2.5rem;
         margin: 20px 0;
     }
-    .section_limit_sale .item_pic img {
-        scale: 2;
-        bottom: 80px;
-    }
     .limit_sale_info .price span {
         font-size: 7rem;
     }
@@ -916,21 +954,6 @@ footer ul li + li {
         100% {background-color: #ffeded;}
     }
 
-    .limit_sale_object {
-        cursor: pointer;
-    }
-    .section_limit_sale .item_name h3 {
-        font-size: 3.2rem;
-        font-weight: bold;
-        line-height: 5rem;
-        letter-spacing: .5rem;
-    }
-    .section_limit_sale .item_name span {
-        font-size: 2.4rem;
-    }
-    .timer {
-        margin: 0 30px;
-    }
     .news_card {
         cursor: pointer;
     }
