@@ -19,15 +19,17 @@
     <script src="https://kit.fontawesome.com/3efa9d30d3.js" crossorigin="anonymous"></script>
     <!-- font awesome -->
     <script src="index.js"></script>
+    <script src="producs.js"></script>
+    <script src="shoppingCart.js"></script>
 </head>
 <body>
     <header id="nav_bar">
         <nav>
             <div class="container">
+                <input type="checkbox" name="" id="switch">
                 <div class="nav_logo">
                     <a href="index.html"><img src="img/logo.png" alt="Brood寵物醫療用品"></a>
                 </div>
-                <input type="checkbox" name="" id="switch">
                 <label class="hb" for="switch">
                     <span></span>
                     <span></span>
@@ -68,13 +70,60 @@
             </div>
         </nav>
     </header>
+    <div id="shoppingCart">
+        <div id="cartQty">12</div>
+        <i id="cartIcon"class="fa-solid fa-cart-shopping"></i>
+        <div class="cart_content">
+            <i id="closeCart"class="fa-regular fa-circle-xmark"></i>
+            <ul class="cart_items">購物車
+                <li>
+                    <span>產品名稱</span>
+                    <span>NT$ 90</span>
+                    <span>數量:</span>
+                    <div class="cart_item_qty">
+                        <i class="fa-solid fa-minus"></i>
+                        <span class="cart_qty">1</span>
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
+                    <span class="cart_item_amount">NT$ 90</span>
+                </li>
+                <li>
+                    <span>產品名稱產品名稱產品名稱</span>
+                    <span>NT$ 90</span>
+                    <span>數量:</span>
+                    <div class="cart_item_qty">
+                        <i class="fa-solid fa-minus"></i>
+                        <span class="cart_qty">1</span>
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
+                    <span class="cart_item_amount">NT$ 90</span>
+                </li>
+                <li>
+                    <span>產品名稱</span>
+                    <span>NT$ 90</span>
+                    <span>數量:</span>
+                    <div class="cart_item_qty">
+                        <i class="fa-solid fa-minus"></i>
+                        <span class="cart_qty">1</span>
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
+                    <span class="cart_item_amount">NT$ 90</span>
+                </li>
+            </ul>
+            <div class="cart_total">
+                <button id="checkOut">立即結帳</button>
+                <p>NT$ </p>
+                <span class="total_amount">6,150</span>
+            </div>
+        </div>
+    </div>
     <section class="section_banner" id="secBanner">
         <div class="banner_video">
             <video src="video/index.mp4" autoplay  muted preload="auto" loop  playsinline></video>
             <div class="banner_txt">
                 <p>
                     滿足毛孩<br>
-                    無微不至的需求。
+                    無微不至的需求
                 </p>
                 <a href="productlist.html">立即購物</a>
             </div>
@@ -82,7 +131,7 @@
     </section>
     <section class="section_health_service">
         <div class="container">
-            <div class="row" id="health_list">
+            <div class="row health_list" id="health_list">
                     <div class="col-12 col-md-4">
                         <div class="health_card">
                             <i class="fa-solid fa-headset"></i>
@@ -216,12 +265,12 @@
             <div class="limit_sale_object">
                 <div class="limit_sale_info">
                     <div class="timer_header row">
-                        <div class="col-4 col-lg-3">
+                        <div class="col-3 col-lg-3">
                             <div class="item_pic">
                                 <img src="img/limit_sale_item img.png" alt="">
                             </div>
                         </div>
-                        <div class="col-5 col-lg-6">
+                        <div class="col-6 col-lg-6">
                             <div class="item_name">
                                 <h3>IQ DOG聰明狗乾糧</h3>
                                 <div class="item_name_tag">
