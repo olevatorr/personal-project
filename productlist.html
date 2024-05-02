@@ -18,11 +18,38 @@
     <!-- google font -->
     <script src="https://kit.fontawesome.com/3efa9d30d3.js" crossorigin="anonymous"></script>
     <!-- font awesome -->
-    <script src="productlist.js"></script>
-    <script src="producs.js"></script>
+    <script src="js/productlist.js"></script>
+    <script src="js/producs.js"></script>
+    <script src="js/shoppingCart.js"></script>
 
 </head>
 <body>
+    <div id="shoppingCart">
+        <div id="cartQty">12</div>
+        <i id="cartIcon"class="fa-solid fa-cart-shopping"></i>
+        <div class="cart_content">
+            <i id="closeCart"class="fa-regular fa-circle-xmark"></i>
+            <ul class="cart_items">購物車
+                <li>
+                    <span>產品名稱</span>
+                    <span>NT$ 90</span>
+                    <span>數量:</span>
+                    <div class="cart_item_qty">
+                        <i class="fa-solid fa-minus"></i>
+                        <span class="cart_qty">1</span>
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
+                    <span class="cart_item_amount">NT$ 90</span>
+                    <i class="fa-regular fa-trash-can"></i>
+                </li>
+            </ul>
+            <div class="cart_total">
+                <button id="checkOut">立即結帳</button>
+                <p>NT$ </p>
+                <span class="total_amount">6,150</span>
+            </div>
+        </div>
+    </div>
     <header id="nav_bar">
         <nav>
             <div class="container">
@@ -90,7 +117,7 @@
                     <option>特賣區</option>
                 </select>
             </div>
-            <div class="product_list row row-cols-2 row-cols-lg-5">
+            <div class="product_list">
                 <div class="col">
                     <div class="item">
                         <div class="item_pic">

@@ -1818,8 +1818,8 @@ gmpx-store-locator {
     justify-content: center;
     align-items: center;
     z-index: 10;
-    width: 0;
-    height: 0;
+    max-width: 600px;
+    max-height: 600px;
     transition: .5s;
 }
 #cartQty {
@@ -1828,21 +1828,21 @@ gmpx-store-locator {
     background-color: rgb(255, 96, 96);
     border-radius: 50%;
     position: absolute;
-    top: -30px;
-    right: -30px;
+    top: 0px;
+    right: 0px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 1.4rem;
     font-weight: bold;
     color: #fff;
+    transform: translate(50%, -50%);
 }
 #cartIcon {
     font-size: 3rem;
     color: var(--color-highlight);
     text-align: center;
     background-color: #fff;
-    padding: 10px;
 }
 #closeCart {
     position: absolute;
@@ -1853,6 +1853,7 @@ gmpx-store-locator {
 #shoppingCart ul {
     padding: 10px;
     font-size: 2.4rem;
+    max-width: 600px;
 }
 #shoppingCart ul li::before {
     content: counter(item) ". ";
@@ -1864,10 +1865,9 @@ gmpx-store-locator {
     margin-top: 10px;
 }
 #shoppingCart ul li {
+    width: 500px;
     counter-increment: item;
     display: flex;
-    gap: 15px;
-    align-items: flex-end;
 }
 .cart_content {
     display: none;
@@ -1936,3 +1936,4 @@ gmpx-store-locator {
         font-size: 2rem;
     }
 }
+
