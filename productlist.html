@@ -24,32 +24,6 @@
 
 </head>
 <body>
-    <div id="shoppingCart">
-        <div id="cartQty">12</div>
-        <i id="cartIcon"class="fa-solid fa-cart-shopping"></i>
-        <div class="cart_content">
-            <i id="closeCart"class="fa-regular fa-circle-xmark"></i>
-            <ul class="cart_items">購物車
-                <li>
-                    <span>產品名稱</span>
-                    <span>NT$ 90</span>
-                    <span>數量:</span>
-                    <div class="cart_item_qty">
-                        <i class="fa-solid fa-minus"></i>
-                        <span class="cart_qty">1</span>
-                        <i class="fa-solid fa-plus"></i>
-                    </div>
-                    <span class="cart_item_amount">NT$ 90</span>
-                    <i class="fa-regular fa-trash-can"></i>
-                </li>
-            </ul>
-            <div class="cart_total">
-                <button id="checkOut">立即結帳</button>
-                <p>NT$ </p>
-                <span class="total_amount">6,150</span>
-            </div>
-        </div>
-    </div>
     <header id="nav_bar">
         <nav>
             <div class="container">
@@ -97,15 +71,31 @@
             </div>
         </nav>
     </header>
+    <div id="shoppingCart">
+        <div id="cartQty">12</div>
+        <i id="cartIcon"class="fa-solid fa-cart-shopping"></i>
+        <div class="cart_content">
+            <i id="closeCart"class="fa-regular fa-circle-xmark"></i>
+            <ul class="cart_items">購物車
+            </ul>
+            <div class="cart_total">
+                <a href="checkout.html" id="checkOut">立即結帳</a>
+                <p>NT$ </p>
+                <span class="total_amount">6,150</span>
+            </div>
+        </div>
+    </div>
     <section class="section_product_list">
         <div class="container">
             <div class="filter">
                 <div class="filter_type">
+                    <button>清除篩選</button>
                     <button>犬</button>
                     <button>貓</button>
                 </div>
-                <i class="fa-solid fa-filter"></i>
+                <i id="sortPrice"class="fa-solid fa-filter-circle-dollar"></i>
                 <select class="filter_sort">
+                    <option>請選擇</option>
                     <option>飼料</option>
                     <option>點心罐頭</option>
                     <option>保健食品</option>

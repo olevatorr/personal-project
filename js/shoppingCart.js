@@ -2,23 +2,23 @@
 let cartItems = [];
 
 window.addEventListener('load', function () {
-    const shoppingCart = document.querySelector('#shoppingCart');
     const cartIcon = document.querySelector('#cartIcon');
     const cartContent = document.querySelector('.cart_content');
-    const cartItems = document.querySelectorAll('.cart_items');
-
+    const cartQty = document.querySelector('#cartQty');
     // 初始化購物車
     updateCartUI();
 
     cartIcon.addEventListener('click', function () {
         cartIcon.style.display = 'none';
         cartContent.style.display = 'block';
+        cartQty.style.display = 'none';
     });
 
     const closeCart = document.querySelector('#closeCart');
     closeCart.addEventListener('click', function () {
         cartIcon.style.display = 'block';
         cartContent.style.display = 'none';
+        cartQty.style.display = 'flex';
     });
 
     // 添加產品到購物車
@@ -71,7 +71,7 @@ function updateCartUI() {
             <span>數量:</span>
             <div class="cart_item_qty">
                 <i class="fa-solid fa-minus" onclick="decreaseQuantity('${item.itemName}')"></i>
-                <span class="cart_qty">${item.quantity}</span>
+                <input type="number" class="cart_qty" value="${item.quantity}" pattern="\d*"></input>
                 <i class="fa-solid fa-plus" onclick="increaseQuantity('${item.itemName}')"></i>
             </div>
             <span class="cart_item_amount">NT$ ${formatCurrency(itemTotal)}</span>
@@ -108,5 +108,3 @@ function removeFromCart(itemName) {
         updateCartUI();
     }
 }
-
-// 其他函數...
