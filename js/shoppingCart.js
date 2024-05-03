@@ -26,6 +26,10 @@ window.addEventListener('load', function () {
     addToCartButtons.forEach(button => {
         button.addEventListener('click', addToCart);
     });
+
+    for(let i = 0; i<cartQty.clientHeight; i++){
+        cartQty[i].onchange = inputQuantity;
+    }
 });
 
 function addToCart(event) {
@@ -43,6 +47,7 @@ function addToCart(event) {
         // 否則,將新產品添加到購物車
         cartItems.push({ itemName, itemPrice, quantity: 1 });
     }
+
 
     updateCartUI();
 }
@@ -105,6 +110,14 @@ function removeFromCart(itemName) {
     const itemIndex = cartItems.findIndex(item => item.itemName === itemName);
     if (itemIndex >= 0) {
         cartItems.splice(itemIndex, 1); // 從購物車陣列中移除該項目
+        updateCartUI();
+    }
+}
+
+function inputQuantity(itemName){
+    const item = cartItems.find(item => item.itemName === itemName);
+    if (item && item.quantity > 1){
+        item.quantity = this.value();
         updateCartUI();
     }
 }

@@ -27,7 +27,7 @@ window.addEventListener('load', function () {
                 <div class="item_pic">
                 <img src="${img}" alt="${itemName}">
                 </div>
-                <h4>${itemName}</h4>
+                    <h4>${itemName}</h4>
                 <ul>
                 ${tagList.map((tag) => `<li>${tag}</li>`).join('')}
                 </ul>
@@ -90,6 +90,9 @@ window.addEventListener('load', function () {
         filterSortSelect.selectedIndex = 0;
         productListContainer.innerHTML = createProductsHTML(productList);
         filteredProductList = productList;
+        sortPrice.classList.remove('fa-arrow-down-short-wide');
+        sortPrice.classList.remove('fa-arrow-down-wide-short');
+        sortPrice.classList.add('fa-filter-circle-dollar');
     }
 
     // 綁定篩選事件
@@ -147,7 +150,6 @@ window.addEventListener('load', function () {
                 productSortReset = filteredProductList;
             }
             productListContainer.innerHTML = createProductsHTML(productSortReset)
-            console.log(productList)
         }
     })
 
