@@ -30,6 +30,9 @@ body {
 .container {
     max-width: 1220px;
 }
+a, button, input, select, option {
+    font-family: Noto Sans TC;
+}
 h1 {
     font-size: 3rem;
     letter-spacing: 2rem;
@@ -1062,22 +1065,21 @@ footer ul li + li {
 }
 .filter i {
     font-size: 2rem;
+    letter-spacing: .1rem;
+    cursor: pointer;
 }
-.filter_type button:hover {
-    background-color: var(--color-highlight);
-}
-.filter_type button:active {
-    background-color: var(--color-highlight-active);
-    color: #fff;
-}
+
+
 .section_product_list a {
     text-decoration: none;
     color: var(--color-black-font);
 }
-.filter_type button.active {
-    background-color: var(--color-highlight); 
-    color: #fff;
-    font-weight: 600;
+
+.filter_sort {
+    font-size: 1.6rem;
+    padding: 5px 10px;
+    margin: 0 20px;
+    border: none;
 }
 .item {
     background-color: #fff;
@@ -1090,9 +1092,32 @@ footer ul li + li {
     height: 200px;
     vertical-align: top;
 }
+.section_product_list {
+    padding: 200px 0;
+}
 .section_product_list .item h4 {
     font-weight: bold;
     margin: 20px 0;
+}
+@media screen and (min-width: 1024px) {
+    .filter i:hover {
+        color: var(--color-highlight);
+    }
+    .filter i:active {
+        color: var(--color-highlight-hover);
+    }
+    .filter_type button:hover {
+        background-color: var(--color-highlight);
+    }
+    .filter_type button:active {
+        background-color: var(--color-highlight-active);
+        color: #fff;
+    }
+    .filter_type button.active {
+        background-color: var(--color-highlight); 
+        color: #fff;
+        font-weight: 600;
+    }
 }
 .item ul {
     display: flex;
@@ -1117,55 +1142,52 @@ footer ul li + li {
     color : #ccc;
     cursor: pointer;
 }
-.item_bottom i:hover {
-    color: var(--color-highlight);
+@media screen and (min-width: 1024px) {
+    .item_bottom i:hover {
+        color: var(--color-highlight);
+    }
+    .item_bottom i:active {
+        color: var(--color-highlight-hover);
+    }
+    .item:hover {
+        box-shadow: 1px 1px 5px #ccc;
+    }
 }
-.item_bottom i:hover {
-    color: var(--color-highlight-hover);
-}
+
 .section_page_selector .container {
     display: flex;
     justify-content: center;
 }
+.page_bar ul li.active a {
+    color: var(--color-highlight-hover);
+}
 .section_page_selector .page_bar {
-    display: inline-block;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
 }
 .section_page_selector .page_bar ul {
-    margin: auto;
-    padding: 5px 0;
-    border-radius: 30px;
-    background-color: #fff;
-    width: calc(50px * 5 + 10px);
-    display: block;
     display: flex;
     justify-content: center;
-    gap: 10px;
+    align-items: center;
+    gap: 30px;
 }
 .section_page_selector .page_bar li a {
     font-size: 2rem;
     text-decoration: none;
     color: var(--color-black-font);
-    padding: 5px 15px;
 }
 .section_page_selector .page_bar li:first-child a {
-    background-color: var(--color-blue-btn);
-    border-radius: 5px;
     cursor: pointer;
-
-}
-.section_page_selector .page_bar li a:hover {
-    color: var(--color-blue-btn);
 }
 .section_page_selector .lastpage_btn {
     position: relative;
+    cursor: pointer;
 }
 .section_page_selector .circle {
     width: 30px;
     height: 30px;
-    background-color: #fff;
-    border-radius: 50%;
-    position: absolute;
-    left: -20%;
+    position: relative;
 }
 .section_page_selector .arrow {
     width: 10px;
@@ -1179,6 +1201,7 @@ footer ul li + li {
 }
 .section_page_selector .nextpage_btn {
     position: relative;
+    cursor: pointer;
 }
 .section_page_selector .nextpage_btn .circle {
     left: unset;
@@ -1190,11 +1213,8 @@ footer ul li + li {
     left: 40%
 }
 .lastpage_btn:hover , .nextpage_btn:hover {
-    .circle {
-        background-color: var(--color-blue-btn);
-    }
     .arrow {
-        border-color: #fff;
+        border-color: var(--color-highlight);
     }
 }
 /* videocall */
@@ -1876,7 +1896,6 @@ gmpx-store-locator {
 #shoppingCart ul {
     padding: 10px;
     font-size: 2rem;
-    max-width: 600px;
 }
 #shoppingCart ul li::before {
     content: counter(item) ". ";
@@ -1886,13 +1905,13 @@ gmpx-store-locator {
 }
 #shoppingCart ul li + li {
     margin-top: 10px;
+    width: 100%;
 }
 #shoppingCart ul li {
-    width: 100%;
     border-bottom: 2px var(--color-highlight-active) solid;
     counter-increment: item;
     display: flex;
-    font-size: 1.2rem;
+    font-size: 1rem;
     align-items: center;
     padding-bottom: 5px;
     letter-spacing: .1rem;

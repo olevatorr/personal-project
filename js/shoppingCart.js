@@ -5,6 +5,13 @@ window.addEventListener('load', function () {
     const cartIcon = document.querySelector('#cartIcon');
     const cartContent = document.querySelector('.cart_content');
     const cartQty = document.querySelector('#cartQty');
+
+    // 從 localStorage 中獲取購物車數據
+    const savedCartItems = localStorage.getItem('cartItems');
+    if (savedCartItems) {
+        cartItems = JSON.parse(savedCartItems);
+    }
+
     // 初始化購物車
     updateCartUI();
 
@@ -26,10 +33,6 @@ window.addEventListener('load', function () {
     addToCartButtons.forEach(button => {
         button.addEventListener('click', addToCart);
     });
-
-    for(let i = 0; i<cartQty.clientHeight; i++){
-        cartQty[i].onchange = inputQuantity;
-    }
 });
 
 function addToCart(event) {
@@ -48,8 +51,8 @@ function addToCart(event) {
         cartItems.push({ itemName, itemPrice, quantity: 1 });
     }
 
-
     updateCartUI();
+    saveCartToLocalStorage(); // 將購物車數據保存到 localStorage
 }
 
 function formatCurrency(amount) {
@@ -76,7 +79,7 @@ function updateCartUI() {
             <span>數量:</span>
             <div class="cart_item_qty">
                 <i class="fa-solid fa-minus" onclick="decreaseQuantity('${item.itemName}')"></i>
-                <input type="number" class="cart_qty" value="${item.quantity}" pattern="\d*"></input>
+                <input type="number" class="cart_qty" value="${item.quantity}" min="1" onchange="changeQuantity(event, '${item.itemName}')">
                 <i class="fa-solid fa-plus" onclick="increaseQuantity('${item.itemName}')"></i>
             </div>
             <span class="cart_item_amount">NT$ ${formatCurrency(itemTotal)}</span>
@@ -84,7 +87,7 @@ function updateCartUI() {
         </li>
         `;
     });
-
+    
     // 更新購物車數量和總金額
     cartQty.textContent = cartItems.reduce((total, item) => total + item.quantity, 0);
     totalAmount.textContent = formatCurrency(total);
@@ -95,6 +98,7 @@ function increaseQuantity(itemName) {
     if (item) {
         item.quantity++;
         updateCartUI();
+        saveCartToLocalStorage(); // 將購物車數據保存到 localStorage
     }
 }
 
@@ -103,6 +107,7 @@ function decreaseQuantity(itemName) {
     if (item && item.quantity > 1) {
         item.quantity--;
         updateCartUI();
+        saveCartToLocalStorage(); // 將購物車數據保存到 localStorage
     }
 }
 
@@ -111,13 +116,24 @@ function removeFromCart(itemName) {
     if (itemIndex >= 0) {
         cartItems.splice(itemIndex, 1); // 從購物車陣列中移除該項目
         updateCartUI();
+        saveCartToLocalStorage(); // 將購物車數據保存到 localStorage
     }
 }
 
-function inputQuantity(itemName){
+function changeQuantity(event, itemName) {
     const item = cartItems.find(item => item.itemName === itemName);
-    if (item && item.quantity > 1){
-        item.quantity = this.value();
-        updateCartUI();
+    if (item) {
+        const newQuantity = parseInt(event.target.value);
+        if (newQuantity >= 1) {
+            item.quantity = newQuantity;
+            updateCartUI();
+            saveCartToLocalStorage(); // 將購物車數據保存到 localStorage
+        }
     }
 }
+
+// 將購物車數據保存到 localStorage
+function saveCartToLocalStorage() {
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+}
+
