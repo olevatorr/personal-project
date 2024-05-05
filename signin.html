@@ -18,8 +18,7 @@
     <!-- google font -->
     <script src="https://kit.fontawesome.com/3efa9d30d3.js" crossorigin="anonymous"></script>
     <!-- font awesome -->
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    <!-- gsap animation -->
+    <script src="js/membership.js"></script>
 </head>
 <body>
     <header>
@@ -65,6 +64,15 @@
                     <li>
                         <a class="signin" href="signin.html">會員註冊</a>
                     </li>
+                    <li id="memberInfo" style="display: none;">
+                        <a href="member.html">
+                            <i class="fas fa-user"></i>
+                            <span id="userNameDisplay"></span>
+                        </a>
+                    </li>
+                    <li id="logoutBtn" style="display: none;">
+                        <a href="#" onclick="logout()">登出</a>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -78,34 +86,43 @@
                     </div>
                     <div class="signin_input">
                         <p>帳號</p>
-                        <input type="text" placeholder="請輸入6碼或以上數字加英文帳號" required>
+                        <input type="text" id="memNum" name="memNum" placeholder="請輸入6碼或以上英文加數字帳號" required>
+                        <span id="numAVL">．帳號可以使用</span>
+                        <span id="numNAVL">．帳號不可使用</span>
                     </div>
                     <div class="signin_input">
                         <p>密碼</p>
-                        <input type="password" placeholder="請輸入6碼或以上數字加英文密碼" required>
+                        <input type="password" id="memPsw"  placeholder="請輸入6碼或以上英文加數字密碼" required>
+                    </div>
+                    <div class="signin_input">
+                        <p>確認密碼</p>
+                        <input type="password" id="memPswCheck" name="memPsw" placeholder="請再輸入一次密碼" required>
+                        <span id="pswAVL">．密碼正確</span>
+                        <span id="pswNAVL">．密碼不正確</span>
                     </div>
                     <div class="signin_input">
                         <p>姓名</p>
-                        <input type="text" placeholder="請輸入真實姓名" required>
+                        <input type="text" id="userName" name="userName" placeholder="請輸入真實姓名" required>
                     </div>
                     <div class="signin_input">
-                        <p>電話</p>
-                        <input type="tel" pattern="[0][9][0-9]{8}" placeholder="09開頭共10碼" required>
+                        <p>手機</p>
+                        <input type="tel" pattern="[0][9][0-9]{8}" id="userTel" name="userTel" placeholder="09開頭共10碼" required>
+                        <span id="telNAVL">．手機已註冊過</span>
                     </div>
                     <div class="signin_input">
                         <p>生日</p>
-                        <input type="date"  required>
+                        <input type="date" id="userBD" name="userBD" required>
                     </div>
                     <div class="signin_input">
                         <p>電子信箱</p>
-                        <input type="email" placeholder="請輸入電子信箱" required>
+                        <input type="email" id="userEmail" name="userEmail" placeholder="請輸入電子信箱" required>
                     </div>
                     <div class="signin_input">
                         <p>收件地址</p>
-                        <input type="text" placeholder="請輸入收件地址" required>
+                        <input type="text" id="userAddr" name="userAddr" placeholder="請輸入收件地址" required>
                     </div>
                     <input type="submit" value="立即註冊">
-                    <span>其他方式註冊</span>
+                    <span class="otherSignin">其他方式註冊</span>
                     <div class="signin_via_oth">
                         <a href=""><img src="img/icon_google_color.svg" alt=""></a>
                         <a href=""><img src="img/icon_fb.svg" alt=""></a>
@@ -117,6 +134,13 @@
             </div>
         </div>
     </section>
+    <div id="errorPopup" class="popup">
+        <div class="popup-content">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <p id="errorText">帳號或密碼錯誤,請重新輸入。</p>
+            <button id="closePopup">確定</button>
+        </div>
+    </div>
     <footer>
         <div class="container">
             <div class="footer_info">

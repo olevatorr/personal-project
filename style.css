@@ -1658,40 +1658,64 @@ footer ul li + li {
 /* login */
 .section_login {
     padding: 50px 0;
+    display: flex;
+    justify-content: center;
 }
 .section_login .container {
     border-radius: 20px;
     background-color: #fff;
     overflow: hidden;
-    margin: 0 150px;
+    margin: 0 3vw;
 }
 .section_login .login_img {
     background-image: url(img/login_banner.png);
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 100px 100px;
+    padding: 200px 100px;
+}
+@media screen and (max-width: 767px) {
+    .section_login .login_img {
+        display: none;
+    }
+    .section_login .container {
+        flex-grow: 2;
+        width: 70%;
+    }
+
 }
 .section_login h1 {
     letter-spacing: .2rem;
     font-weight: bold;
     color: #fff;
 }
-.section_login .login_img a {
-    display: block;
+.section_login .login_submit {
+    display: flex;
+    margin: 50px 0;
+    gap: 50px;
+}
+.section_login .login_submit a {
     background-color: var(--color-highlight);
     text-decoration: none;
     font-size: 1.6rem;
     color: #fff;
     padding: 10px 10px;
-    margin-top: 50px;
-    width: 80px;
     text-align: center;
     cursor: pointer;
+    position: relative;
 }
-.section_login .login_img a:hover {
+.section_login .login_submit a::before {
+    content: '還沒有帳號?';
+    font-size: 1.2rem;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    color: var(--color-black-font);
+    transform: translateY(120%);
+}
+.section_login .login_submit a:hover {
     background-color: var(--color-highlight-hover);
 }
-.section_login .login_img a:active {
+.section_login .login_submit a:active {
     background-color: var(--color-highlight-active);
 }
 .login_area {
@@ -1715,19 +1739,18 @@ footer ul li + li {
     font-size: 1.6rem;
     letter-spacing: .1rem;
 }
-.login_area input[type="submit"] {
+.login_area input[type="button"] {
     background-color: var(--color-highlight);
     color: #fff;
     font-size: 1.6rem;
     padding: 5px 20px;
     border: none;
-    margin-top: 50px;
     cursor: pointer;
 }
-.login_area input[type="submit"]:hover {
+.login_area input[type="button"]:hover {
     background-color: var(--color-highlight-hover);
 }
-.login_area input[type="submit"]:active {
+.login_area input[type="button"]:active {
     background-color: var(--color-highlight-active);
 }
 .login_area > a {
@@ -1765,6 +1788,48 @@ footer ul li + li {
     display: flex;
     gap: 40px;
 }
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.popup-content {
+background-color: #fff;
+margin: 15% auto;
+padding: 20px;
+border: 1px solid #888;
+width: 300px;
+text-align: center;
+border-radius: 5px;
+box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+.popup-content i {
+font-size: 40px;
+color: #ff5252;
+margin-bottom: 10px;
+}
+.popup-content p {
+font-size: 18px;
+margin-bottom: 20px;
+}
+.popup-content button {
+padding: 10px 20px;
+background-color: #ff5252;
+color: #fff;
+border: none;
+cursor: pointer;
+transition: background-color 0.3s;
+}
+
+.popup-content button:hover {
+background-color: #ff1744;
+}
 /* hospitalinfo */
 .section_location h2 {
     margin-bottom: 20px;
@@ -1792,6 +1857,10 @@ gmpx-store-locator {
     padding: 100px 0;
 }
 .section_signin .container {
+    padding: 0 5vw;
+    box-sizing: border-box;
+}
+.section_signin .row {
     background-color: #fff;
     border-radius: 20px;
     overflow: hidden;
@@ -1800,11 +1869,27 @@ gmpx-store-locator {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap:50px;
+    gap:30px;
     padding: 50px 30px;
+}
+.signin_area:first-child .signin_input, .signin_area:nth-child(3) .signin_input, .signin_area:nth-child(5) .signin_input {
+    position: relative;
+}
+#numAVL, #pswAVL {
+    color: rgb(0, 184, 10);
+    position: absolute;
+    right: 0;
+    display: none;
+}
+#numNAVL, #pswNAVL , #telNAVL{
+    color: #f80202;
+    position: absolute;
+    right: 0;
+    display: none;
 }
 .section_signin .signin_area .signin_input {
     display: flex;
+    align-items: center;
     gap: 15px;
 }
 .section_signin .signin_area .signin_input p {
@@ -1818,13 +1903,12 @@ gmpx-store-locator {
 }
 .section_signin .signin_area input {
     width: 300px;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     background-color: transparent;
     border: none;
     border-bottom: 1px solid var(--color-black-font);
     outline: none;
     padding: 3px;
-    letter-spacing: .1rem;
 }
 .section_signin .signin_area input[type="date"] {
     letter-spacing: 1rem;
@@ -1850,12 +1934,12 @@ gmpx-store-locator {
     background-size: cover;
     background-position-x: 65%;
 }
-.section_signin span {
+.section_signin span.otherSignin {
     font-size: 1.2rem;
     letter-spacing: .2rem;
     position: relative;
 }
-.section_signin span::before {
+.section_signin span.otherSignin::before {
     content: '';
     display: block;
     height: 1px;
@@ -1866,7 +1950,7 @@ gmpx-store-locator {
     top: 50%;
     transform: translateX(-120%);
 }
-.section_signin span::after {
+.section_signin span.otherSignin::after {
     content: '';
     display: block;
     height: 1px;

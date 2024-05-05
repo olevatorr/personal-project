@@ -18,8 +18,7 @@
     <!-- google font -->
     <script src="https://kit.fontawesome.com/3efa9d30d3.js" crossorigin="anonymous"></script>
     <!-- font awesome -->
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    <!-- gsap animation -->
+    <script src="js/membership.js"></script>
 </head>
 <body>
     <header>
@@ -65,6 +64,15 @@
                     <li>
                         <a class="signin" href="signin.html">會員註冊</a>
                     </li>
+                    <li id="memberInfo" style="display: none;">
+                        <a href="member.html">
+                            <i class="fas fa-user"></i>
+                            <span id="userNameDisplay"></span>
+                        </a>
+                    </li>
+                    <li id="logoutBtn" style="display: none;">
+                        <a href="#" onclick="logout()">登出</a>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -72,21 +80,23 @@
     <section class="section_login">
         <div class="container">
             <div class="row">
-                <div class="login_img col-8">
+                <div class="login_img col-md-7">
                     <h1>滿足毛孩<br>無微不至的需求。</h1>
-                    <a href="signin.html">
-                        立即註冊
-                    </a>
                 </div>
-                <form class="login_area col-4">
+                <form class="login_area col-12 col-md-5">
                     <div class="logo_pic">
                         <a href="index.html"><img src="img/logo.png" alt=""></a>
                     </div>
                     <p>帳號</p>
-                    <input type="text" placeholder="請輸入帳號" name="menNum" required>
+                    <input type="text" placeholder="請輸入帳號" name="memNum" id="loginMemNum" required>
                     <p>密碼</p>
-                    <input type="password" placeholder="請輸入密碼" name="menPsw" required>
-                    <input type="submit" value="登入">
+                    <input type="password" placeholder="請輸入密碼" name="memPsw" id="loginMemPsw" required>
+                    <div class="login_submit">
+                        <a href="signin.html">
+                            立即註冊
+                        </a>
+                        <input type="button" value="登入" id="loginbtn">
+                    </div>
                     <a href="">忘記密碼?</a>
                     <span>其他方式登入</span>
                     <div class="login_via_oth">
@@ -95,6 +105,13 @@
                         <a href=""><img src="img/icon_line.svg" alt=""></a>
                     </div>
                 </form>
+            </div>
+            <div id="errorPopup" class="popup">
+                <div class="popup-content">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    <p id="errorText">帳號或密碼錯誤,請重新輸入。</p>
+                    <button id="closePopup">確定</button>
+                </div>
             </div>
         </div>
     </section>
