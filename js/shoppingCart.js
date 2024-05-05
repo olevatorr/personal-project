@@ -5,6 +5,9 @@ window.addEventListener('load', function () {
     const cartIcon = document.querySelector('#cartIcon');
     const cartContent = document.querySelector('.cart_content');
     const cartQty = document.querySelector('#cartQty');
+    const productListContainer = document.querySelector('.product_list');
+
+    
 
     // 從 localStorage 中獲取購物車數據
     const savedCartItems = localStorage.getItem('cartItems');
@@ -32,6 +35,14 @@ window.addEventListener('load', function () {
     const addToCartButtons = document.querySelectorAll('.fa-cart-plus');
     addToCartButtons.forEach(button => {
         button.addEventListener('click', addToCart);
+    });
+
+    productListContainer.addEventListener('click', function (event) {
+        const target = event.target;
+        
+        if (target.classList.contains('fa-cart-plus')) {
+            event.preventDefault(); // 阻止<a>標籤的默認行為
+        } 
     });
 });
 

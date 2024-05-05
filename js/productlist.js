@@ -14,37 +14,36 @@ window.addEventListener('load', function () {
         <div class="row row-cols-2 row-cols-lg-5">
         ${products.map(createProduct).join('')}
         </div>
-        `; 
+        `;
         // join去除","
     }
 
     // 生成單個產品的 HTML 內容
     function createProduct(product) {
-        const { itemName, tag, img, price } = product; 
-        const tagList = tag.split(' '); 
-        // 去除tag中的空格
+        const { itemName, tag, img, price } = product;
+        const tagList = tag.split(' ');
         return `
-        <a href="itempage.html" class="col">
-            <div class="item">
-                <div class="item_pic">
-                    <img src="${img}" alt="${itemName}">
-                </div>
+            <a href="itempage.html" class="col" data-has-cart-icon="true">
+                <div class="item">
+                    <div class="item_pic">
+                        <img src="${img}" alt="${itemName}">
+                    </div>
                     <h4>${itemName}</h4>
-                <ul>
-                ${tagList.map((tag) => `<li>${tag}</li>`).join('')}
-                </ul>
-                <div class="item_bottom">
-                    <div class="price">NT$ ${price}</div>
-                    <i class="fa-solid fa-cart-plus" data-item-name="${itemName}"></i>
+                    <ul>
+                        ${tagList.map((tag) => `<li>${tag}</li>`).join('')}
+                    </ul>
+                    <div class="item_bottom">
+                        <div class="price">NT$ ${price}</div>
+                        <i class="fa-solid fa-cart-plus" data-item-name="${itemName}"></i>
+                    </div>
                 </div>
-            </div>
-        </a>
+            </a>
         `;
     }
 
     // 篩選產品
     function filterProducts() {
-        const selectedPet = document.querySelector('.filter_type button.active')?.textContent; 
+        const selectedPet = document.querySelector('.filter_type button.active')?.textContent;
         // ?.判斷是否有值可取，若無也不會導致null/undefined而無法繼續運作
         const selectedType = filterSortSelect.value;
 
@@ -82,29 +81,22 @@ window.addEventListener('load', function () {
             }
         }
 
-        filteredProductList = filteredProducts; 
+        filteredProductList = filteredProducts;
         // 更新篩選後的產品列表
-        generateProductList(1); 
+        generateProductList(1);
         // 重新生成產品列表,從第一頁開始
-        productListContainer.addEventListener('click', function (event) {
-            if (event.target.classList.contains('fa-cart-plus')) {
-                event.preventDefault(); // 阻止<a>標籤的默認行為
-                event.stopPropagation(); // 阻止事件冒泡
-                const itemName = event.target.dataset.itemName;
-                addToCart(itemName);
-            }
-        });
-    
+
     }
+
 
 
     // 清除篩選
     function clearFilter() {
         filterTypeButtons.forEach(btn => btn.classList.remove('active'));
         filterSortSelect.selectedIndex = 0;
-        filteredProductList = productList; 
+        filteredProductList = productList;
         // 重置篩選後的產品列表為原始產品列表
-        generateProductList(1); 
+        generateProductList(1);
         // 重新生成產品列表,從第一頁開始
         sortPrice.classList.remove('fa-arrow-down-short-wide');
         sortPrice.classList.remove('fa-arrow-down-wide-short');

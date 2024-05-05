@@ -278,7 +278,7 @@ const productList = [{
     pet: "dog",
     type: "health",
     itemName: "關節保健粉",
-    tag: "#關節保健 #骨骼健康 #行動靈活",
+    tag: "#關節保健 #骨骼健康 #全齡",
     img: "img/item_img.png",
     price: 499,
     special: false,
