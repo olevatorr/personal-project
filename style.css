@@ -69,6 +69,36 @@ nav .nav_logo img {
 [type="checkbox"] {
     display: none;
 }
+nav .navbar_menu a {
+    text-decoration: none;
+    color: var(--color-black-font);
+    font-size: 1.6rem;
+}
+.navbar_menu .submenu li {
+    margin-left: 10px;
+    line-height: 2rem;
+    display: flex;
+}
+.navbar_menu .submenu li a {
+    font-size: 1rem;
+    flex-grow: 1;
+}
+.navbar_menu > li label:has(input:checked) + .submenu {
+    display: block;
+    max-height: 500px;
+}
+.navbar_menu > li label:has(input:checked) {
+    scale: 1 -1;
+}
+.navbar_menu .signin {
+    display: block;
+    color: #fff;
+    background-color: var(--color-highlight);
+    flex-grow: unset;
+    width: unset;
+    padding: 5px 10px;
+    margin: 10px 0px;
+}
 @media screen and (max-width: 1023px) {
     nav .hb {
         width: 40px;
@@ -195,6 +225,7 @@ nav .nav_logo img {
     
     nav .navbar_menu .submenu a {
         padding: 10px 5px;
+        font-size: 1.6rem;
     }
     nav .navbar_menu .submenu a:hover, nav .navbar_menu li a:hover {
         color: var(--color-highlight);
@@ -213,36 +244,6 @@ nav .nav_logo img {
     li:hover > .submenu {
         display: block;
     }
-}
-nav .navbar_menu a {
-    text-decoration: none;
-    color: var(--color-black-font);
-    font-size: 1.6rem;
-}
-.navbar_menu .submenu li {
-    margin-left: 10px;
-    line-height: 2rem;
-    display: flex;
-}
-.navbar_menu .submenu li a {
-    font-size: 1rem;
-    flex-grow: 1;
-}
-.navbar_menu > li label:has(input:checked) + .submenu {
-    display: block;
-    max-height: 500px;
-}
-.navbar_menu > li label:has(input:checked) {
-    scale: 1 -1;
-}
-.navbar_menu .signin {
-    display: block;
-    color: #fff;
-    background-color: var(--color-highlight);
-    flex-grow: unset;
-    width: unset;
-    padding: 5px 10px;
-    margin: 10px 0px;
 }
 section {
     padding: 30px 0;
@@ -780,7 +781,7 @@ section h2 {
 .news_date .month_year {
     display: inline-block;
     font-size: 2rem;
-    background-color: #68D1E7;
+    background-color: var(--color-highlight);
     padding: 5px 5px;
 }
 .news_date .news_title {
@@ -817,7 +818,7 @@ section h2 {
     vertical-align: top;
 }
 .section_subscribe .subscribe_card {
-    background-color: #68D1E7;
+    background-color: var(--color-highlight-active);
     padding: 50px 50px;
     display: flex;
     align-items: center;
@@ -1524,6 +1525,16 @@ footer ul li + li {
     vertical-align: top;
     margin: 30px 0;
 }
+/* checkout */
+.section_cartlist {
+    padding: 50px 100px;
+    flex-grow: 2;
+}
+.section_cartlist .container {
+    display: flex;
+    justify-content: center;
+    gap: 3vw;
+}
 .section_cartlist ol {
     counter-reset: item;
     list-style-type: none;
@@ -1539,18 +1550,17 @@ footer ul li + li {
     font-size: 1.6rem;
 }
 .cartlist {
-    display: grid;
-    grid-template-columns: repeat(2, 50%);
-    grid-template-rows: repeat(5, auto);
-    grid-auto-flow: column;
-    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 .cart_item {
     display: flex;
     align-items: end;
     justify-content: space-evenly;
     margin: 10px 0px 0px 0px;
-    padding: 5px 0;
+    padding: 5px;
 }
 .cart_item + .cart_item {
     border-top: 1px solid #ccc;
@@ -1579,7 +1589,8 @@ footer ul li + li {
     height: 100px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    margin-left: 10px;
 }
 .cart_item .item_info span {
     font-size: 1.6rem;
@@ -1596,6 +1607,38 @@ footer ul li + li {
 }
 .cart_item .item_price {
     font-size: 1.6rem;
+}
+.total_info {
+    padding: 40px 20px;
+    background-color: #fff;
+}
+.total_info h3 {
+    font-size: 2.4rem;
+    font-weight: bold;
+    color: var(--color-highlight-active);
+}
+.discountArea {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+}
+.discountArea span {
+    font-size: 1.6rem;
+    margin-right: 10px;
+    text-align: right;
+}
+#enterDiscount {
+    width: 60%;
+}
+.discountTotal {
+    display: flex;
+    justify-content: end;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+.discountTotal span {
+    margin-left: 10px;
 }
 .item_amount {
     display: flex;
@@ -1854,7 +1897,7 @@ gmpx-store-locator {
 }
 /* signin */
 .section_signin {
-    padding: 100px 0;
+    padding: 50px 3vw;
 }
 .section_signin .container {
     padding: 0 5vw;
@@ -1890,9 +1933,10 @@ gmpx-store-locator {
 .section_signin .signin_area .signin_input {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 15px;
 }
-.section_signin .signin_area .signin_input p {
+.section_signin .signin_area .signin_input span {
     width: 100px;
     text-align: right;
     letter-spacing: .2rem;
@@ -1934,6 +1978,33 @@ gmpx-store-locator {
     background-size: cover;
     background-position-x: 65%;
 }
+@media screen and (max-width: 767px) {
+    .section_signin .signin_img {
+        display: none;
+    }
+    .signin_area .signin_input input {
+        width: 100%;
+        font-size: 1.2rem;
+    }
+    .signin_area .signin_input span {
+        font-size: 1.2rem;
+    }
+    .section_signin .signin_area .signin_input span {
+        width: 40%;
+    }
+    .section_signin .signin_area .signin_input {
+        width: 80%;
+    }
+}
+@media screen and (min-width: 768px) {
+    .signin_area .signin_input input {
+        width: 100%;
+        font-size: 1.6rem;
+    }
+    .signin_area .signin_input span {
+        font-size: 1.6rem;
+    }
+}
 .section_signin span.otherSignin {
     font-size: 1.2rem;
     letter-spacing: .2rem;
@@ -1974,13 +2045,15 @@ gmpx-store-locator {
     position: fixed;
     bottom: 3%;
     right: 3%;
-    background-color: #fff;
+    background-color: var(--color-highlight);
+    border-radius: 5px  ;
     padding: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 10;
     visibility: hidden;
+    cursor: pointer;
 }
 #shoppingCart:has(li) {
     visibility: visible;
@@ -2003,9 +2076,10 @@ gmpx-store-locator {
 }
 #cartIcon {
     font-size: 3rem;
-    color: var(--color-highlight);
+    color: #fff;
     text-align: center;
-    background-color: #fff;
+    margin-right: 4px;
+    margin-top: 3px;
 }
 #closeCart {
     position: absolute;

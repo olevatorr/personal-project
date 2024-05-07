@@ -57,19 +57,17 @@ function login(){
         return
     }
     const memberList = JSON.parse(localStorage.getItem('memberList'));
-    console.log(memberList);
-    // 尋找符合的陣列物件中的物件，相符回傳true
     const member = memberList.find(function(member) {
         return member.num === loginMemNum && member.psw === loginMemPsw;
     });
     
     if (member) {
-        console.log("登錄成功");
         // 將用戶信息存儲到 localStorage
         localStorage.setItem('loggedInUser', JSON.stringify(member));
         
         // 更新導航欄顯示
         updateNavbar();
+        window.location.href = 'index.html';
     } else {
         document.getElementById('errorPopup').style.display = 'block';
     }

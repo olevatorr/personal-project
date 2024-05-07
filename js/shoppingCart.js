@@ -6,7 +6,7 @@ window.addEventListener('load', function () {
     const cartContent = document.querySelector('.cart_content');
     const cartQty = document.querySelector('#cartQty');
     const productListContainer = document.querySelector('.product_list');
-
+    const shoppingCart = document.querySelector('#shoppingCart');
     
 
     // 從 localStorage 中獲取購物車數據
@@ -22,6 +22,7 @@ window.addEventListener('load', function () {
         cartIcon.style.display = 'none';
         cartContent.style.display = 'block';
         cartQty.style.display = 'none';
+        shoppingCart.style.backgroundColor = '#fff';
     });
 
     const closeCart = document.querySelector('#closeCart');
@@ -29,6 +30,7 @@ window.addEventListener('load', function () {
         cartIcon.style.display = 'block';
         cartContent.style.display = 'none';
         cartQty.style.display = 'flex';
+        shoppingCart.style.backgroundColor = 'var(--color-highlight)'
     });
 
     // 添加產品到購物車
@@ -129,6 +131,9 @@ function removeFromCart(itemName) {
         updateCartUI();
         saveCartToLocalStorage(); // 將購物車數據保存到 localStorage
     }
+
+    const checkli = document.querySelector('#shoppingCart ul li');
+    (!checkli) ? cartContent.display = 'none' : null;
 }
 
 function changeQuantity(event, itemName) {
