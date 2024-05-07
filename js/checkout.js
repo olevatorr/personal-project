@@ -26,16 +26,17 @@ window.addEventListener('load', function (){
             }
         }
     });
-
+    console.log(totalAmount);
     const enterDiscount = document.querySelector('#enterDiscount');
     enterDiscount.addEventListener('change', calcDiscount);
 
-    const closePopup = document.querySelector('#closePopup').addEventListener('click', function() {
+    document.querySelector('#closePopup').addEventListener('click', function() {
         document.querySelector('#Popup').style.display = 'none';
     });
 
 })
 
+let oriAmount;
 
 function updateShoppingCart() {
     const cartList = document.querySelector('.cartlist');
@@ -68,6 +69,7 @@ function updateShoppingCart() {
             </li>
         `;
         total += item.itemPrice * item.quantity;
+        oriAmount = total;
     });
     document.querySelector('#totalQty').textContent = cartItems.length;
     document.querySelector('#totalAmount').textContent = total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -98,10 +100,20 @@ function calcDiscount() {
         discountAmount = discountAmount.toFixed(0);
         finalAmount = totalAmount - discountAmount;
         finalAmount = finalAmount.toFixed(0);
+        document.querySelector('.popup-content .fa-regular').classList.add('fa-circle-check');
+        document.querySelector('.popup-content .fa-regular').classList.remove('fa-circle-xmark');
+        document.querySelector('#Text').textContent = coupon.name + '已套用';
+    } else {
+        document.querySelector('#Popup').style.display = 'block';
+        document.querySelector('#Text').textContent = '無效的折扣碼';
+        document.querySelector('#enterDiscount').value = '';
+        finalAmount = oriAmount;
+        console.log(finalAmount, totalAmount);
+        document.querySelector('.popup-content .fa-regular').classList.remove('fa-circle-check');
+        document.querySelector('.popup-content .fa-regular').classList.add('fa-circle-xmark');
     }
 
     document.querySelector('#discountAmount').textContent = discountAmount.toLocaleString().toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
     document.querySelector('#totalAmount').textContent = finalAmount.toLocaleString().toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
     document.querySelector('#Popup').style.display = 'block';
-    document.querySelector('#Text').textContent = coupon.name + '已套用';
 }

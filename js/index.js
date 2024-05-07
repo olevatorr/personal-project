@@ -1,3 +1,23 @@
+document.addEventListener('DOMContentLoaded', function() {
+    const loadingContainer = document.getElementById('loading-container');
+    const progress = document.querySelector('.progress');
+    let width = 0;
+
+    function simulateLoading() {
+        if (width >= 100) {
+        // 模擬加載完成
+            // 在 window 的 load 事件觸發後隱藏加載畫面
+            loadingContainer.classList.add('hide');
+        } else {
+        width += 20;
+        progress.style.width = width + '%';
+        setTimeout(simulateLoading, 500);
+        }
+    }
+
+    // 在 DOM 內容加載完成後開始模擬加載進度
+    simulateLoading();
+});
 
 window.addEventListener('load', function () {
     // ---------AOS

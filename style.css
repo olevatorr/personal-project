@@ -1127,6 +1127,9 @@ footer ul li + li {
     border-radius: 10px;
     text-align: center;
 }
+.item li {
+    list-style: none;
+}
 .item_pic img {
     height: 200px;
     vertical-align: top;
@@ -1134,7 +1137,7 @@ footer ul li + li {
 .section_product_list {
     padding: 200px 0;
 }
-.section_product_list .item h4 {
+.item h4 {
     font-weight: bold;
     margin: 10px 0;
 }
@@ -1193,7 +1196,10 @@ footer ul li + li {
         box-shadow: 1px 1px 5px #ccc;
     }
 }
-
+.section_page_selector {
+    padding: 0;
+    padding-bottom: 50px;
+}
 .section_page_selector .container {
     display: flex;
     justify-content: center;
@@ -1430,6 +1436,9 @@ footer ul li + li {
     margin-top: 10px;
     width: 100%;
 }
+section.section_item_desc {
+    padding: 0;
+}
 .section_item_info .item_main_pic img , .item_sub_pics img {
     width: 100%;
     vertical-align: top;
@@ -1564,6 +1573,13 @@ footer ul li + li {
     width: 100%;
     vertical-align: top;
     margin: 30px 0;
+}
+.section_other_list{
+    padding: 50px 0;
+}
+.section_other_list a {
+    text-decoration: none;
+    color: var(--color-black-font);
 }
 /* checkout */
 .section_cartlist {
@@ -1918,7 +1934,7 @@ footer ul li + li {
     gap: 40px;
 }
 .popup {
-    display: none;
+    /* display: none; */
     position: fixed;
     z-index: 9999;
     left: 0;
@@ -2375,4 +2391,50 @@ button {
 
 button:hover {
     background-color: #0056b3;
+}
+
+
+/* loading box */
+#loading-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f2f2f2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+#loading-container.hide {
+    display: none;
+}
+
+.logo {
+    width: 200px;
+    height: auto;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.progress-bar {
+    width: 300px;
+    height: 10px;
+    background-color: #ddd;
+    border-radius: 10px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress {
+    width: 0;
+    height: 100%;
+    background-color: var(--color-highlight);
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: width 0.5s ease;
 }

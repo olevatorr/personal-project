@@ -5,7 +5,7 @@ window.addEventListener('load', function () {
     const cartIcon = document.querySelector('#cartIcon');
     const cartContent = document.querySelector('.cart_content');
     const cartQty = document.querySelector('#cartQty');
-    const productListContainer = document.querySelector('.product_list');
+    const productListContainer = document.querySelector('.product_list') || document.querySelector('.other_items');
     const shoppingCart = document.querySelector('#shoppingCart');
     
 
@@ -39,9 +39,16 @@ window.addEventListener('load', function () {
     addToCartButtons.forEach(button => {
         button.addEventListener('click', addToCart);
     });
+    
+    // 添加產品到購物車(itempage)
+    const itemPageCheck = document.querySelector('.button_addcart');
+    if(itemPageCheck){
+        itemPageCheck.addEventListener('click', addToCartForItemPage);
+    };
 
+
+    // a的bubble事件阻止
     if(productListContainer){
-
         productListContainer.addEventListener('click', function (event) {
             const target = event.target;
             
@@ -52,11 +59,32 @@ window.addEventListener('load', function () {
     }
 });
 
+function addToCartForItemPage() {
+    const itemQty = parseInt(document.querySelector('#item_qty').value);
+    const itemName = 'Brood 健康吃狗糧';
+    const itemPrice = 'NT$ ' + '1399';
+    console.log(itemQty, itemName, itemPrice);
+
+    // 檢查產品是否已在購物車中
+    const existingItemIndex = cartItems.findIndex(item => item.itemName === itemName);
+    console.log(existingItemIndex);
+    if (existingItemIndex >= 0) {
+        // 如果產品已在購物車中,則增加數量
+        cartItems[existingItemIndex].quantity += itemQty;
+    } else {
+        // 否則,將新產品添加到購物車
+        cartItems.push({ itemName, itemPrice, quantity: itemQty });
+    }
+    console.log(cartItems);
+    updateCartUI();
+    saveCartToLocalStorage(); // 將購物車數據保存到 localStorage
+}
+
+
 function addToCart(event) {
     const itemCard = event.target.closest('.item');
     const itemName = itemCard.querySelector('h4').textContent;
     const itemPrice = parseFloat(itemCard.querySelector('.price').textContent.replace('NT$ ', ''));
-
     // 檢查產品是否已在購物車中
     const existingItemIndex = cartItems.findIndex(item => item.itemName === itemName);
 
