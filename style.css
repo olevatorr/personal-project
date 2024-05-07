@@ -146,8 +146,8 @@ nav .hb {
         color: var(--color-black-font);
     }
     .navbar_menu > li {
-    display: flex;
-    flex-wrap: wrap;
+        display: flex;
+        flex-wrap: wrap;
     }
     .navbar_menu a {
         padding: 10px 0;
@@ -1264,18 +1264,36 @@ footer ul li + li {
     }
 }
 /* videocall */
-.section_videocall_banner {
-    padding: 60px 0px 0px 0px;
-}
-.section_videocall_banner .container {
+.section_health_banner {
     padding: 0;
+    background: url(img/videocall_banner.png),linear-gradient(to top, #f9f4f100 0%, #F9F4F1 20%,#F9F4F1);
+    height: 30vh;
 }
-.section_videocall_banner img {
+.section_health_banner .container {
+    padding: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+.section_health_banner .container h1 {
+    color: #F9F4F1;
+    font-size: 10rem;
+    font-weight: bold;
+    letter-spacing: .3rem;
+}
+@media screen and (max-width: 767px) {
+    .section_health_banner .container h1 {
+        font-size: 5rem;
+    }
+    
+}
+.section_health_banner img {
     width: 100%;
 }
 .pet_type {
     text-align: center;
-    margin-bottom: 100px;
+    margin-bottom: 20px;
 }
 .pet_type label {
     display: inline-block;
@@ -1283,7 +1301,12 @@ footer ul li + li {
     background-color: #fff;
     font-size: 2rem;
     margin: 0 20px;
-    border-radius: 10px;
+}
+@media screen and (max-width: 767px) {
+    .pet_type label {
+        padding: 10px 20px;
+        font-size: 1.6rem;
+    }
 }
 .pet_type label input {
     display: none;
@@ -1296,45 +1319,145 @@ footer ul li + li {
     background-color: var(--color-highlight);
     color: #fff;
 }
-.pet_info_input input {
+.service_type {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.service_type label {
+    display: inline-block;
+    padding: 20px 50px;
+    background-color: #fff;
+    font-size: 2rem;
+    margin: 0 20px;
+}
+@media screen and (max-width: 767px) {
+    .service_type label {
+        padding: 10px 20px;
+        font-size: 1.6rem;
+        margin-top: 20px;
+    }
+}
+.service_type label input {
+    display: none;
+}
+.service_type label:hover {
+    background-color: var(--color-highlight);
+    color: #fff;
+}
+.service_type label:has(input:checked) {
+    background-color: var(--color-highlight);
+    color: #fff;
+}
+.service_type label:nth-child(2):hover {
+    background-color: #ff4646;
+    color: #fff;
+}
+.service_type label:nth-child(2):has(input:checked) {
+    background-color: #ff4646;
+    color: #fff;
+}
+.section_reserve_info {
+    padding: 50px 0;
+    min-height: 70vh;
+}
+.section_reserve_info .container {
+    padding: 0 5vw;
+    box-sizing: border-box;
+}
+.section_reserve_info h2 {
+    margin: 40px 0;
+    font-size: 2.4rem;
+}
+.pet_info_input input[type="text"], .pet_info_input input[type="date"], .pet_info_input input[type="tel"]{
     padding: 5px;
     border: none;
     margin-left: 15px;
+    width: 70%;
+    letter-spacing: .2rem;
+    font-size: 1.6rem;
+}
+.pet_info_input input[type="date"] {
+    text-align: center;
+    letter-spacing: .4rem;
+}
+@media screen and (max-width: 767px) {
+    .pet_info_input .col-12 {
+        margin-top: 15px;
+    }
+    
 }
 .pet_basis_info {
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap:20px;
     font-size: 1.6rem;  
 }
-
-.pet_vaccine_info {
-    margin: 20px 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
+.pet_basis_info .col-12 {
+    margin-top: 20px;
 }
-.section_video_reserve_info .radio {
+.pet_vaccine_info {
+    padding: 40px 0;
+}
+.section_reserve_info .radio {
     display: flex;
     align-items: center;
-    margin: 0 10px;
+    letter-spacing: .2rem;
     font-size: 1.6rem;
 }
-.pet_pic_info {
+.pet_pic_info span {
+    font-size: 1.6rem;
+    letter-spacing: .2rem;
+}
+.pet_pics {
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     font-size: 1.2rem;
+    margin-top: 15px;
+}
+@media screen and (max-width: 767px) {
+    .pet_pics {
+        flex-wrap: wrap;
+    }
+}
+.location_info {
+    margin: 20px 0;
+}
+#video_reserve {
+    display: none;
+}
+#emergency_reserve {
+    display: none;
+}
+.section_reserve_info h2 {
+    display: none;
+}
+#openMap {
+    font-size: 1.6rem;
+    letter-spacing: .2rem;
+    padding: 5px 10px;
+    background-color: var(--color-highlight);
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+}
+#openMap:hover {
+    background-color: var(--color-highlight-hover);
+}
+#openMap:active {
+    background-color: var(--color-highlight-active);
+}
+.location_info {
+    overflow: hidden;
+}
+.googlemap {
+    max-height: 0px;
+    transition: .5s;
 }
 .pet_desc_info {
     margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     font-size: 1.6rem;
+    letter-spacing: .2rem;
 }
 .pet_desc_info textarea {
     margin: 10px 0px 0px 0px;
@@ -1351,6 +1474,12 @@ footer ul li + li {
         margin: 0px 5px 0px 0px;
     }
 }
+.pet_info_check span {
+    font-size: 1.6rem;
+    letter-spacing: .2rem;
+    padding: 20px 0 5px 0;
+    display: block;
+}
 .pet_info_check textarea {
     padding: 5px;
     margin: 10px 0;
@@ -1364,6 +1493,18 @@ footer ul li + li {
     display: flex;
     justify-content: center;
     margin-top: 50px;
+}
+.submit input {
+    border: none;
+    letter-spacing: .2rem;
+}
+.pet_info_input {
+    display: flex;
+    flex-direction: column;
+}
+.pet_info_input .input {
+    display: flex;
+    align-items: center;
 }
 .pet_info_input [type="submit"] {
     background-color: var(--color-highlight);
@@ -1382,7 +1523,6 @@ footer ul li + li {
 .cust_info {
     margin: 20px 0px;
     display: flex;
-    justify-content: center;
     font-size: 1.6rem;
     gap: 15px;
 }
@@ -1785,20 +1925,110 @@ section.section_item_desc {
 }
 /* about us */
 .section_aboutus_banner {
-    height: 300px;
-    background-image: url(img/aboutus_banner.png);
+    height: 30vh;
+    background-image: linear-gradient(to bottom, #f9f4f100 0%, #f9f4f100 80%, #F9F4F1), url(img/aboutus_banner.jpg);
     background-size: cover;
     background-repeat: no-repeat;
+    background-position-y: 10%;
+    padding: 0;
 }
-.section_aboutus .aboutus_pic {
+.section_aboutus_banner .wrap {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    height: 100%;
+}
+.section_aboutus_banner .wrap h1 {
+    font-size: 10rem;
+    color: #F9F4F1;
+    font-weight: bold;
+}
+@media screen and (max-width: 767px) {
+    .section_aboutus_banner .wrap h1 {
+        font-size: 5rem;
+    }
+}
+.abousus_content {
+    color: var(--color-black-font);
+}
+.abousus_content h2 {
+    margin-bottom: 20px;
+}
+@media screen and (max-width: 767px) {
+    .abousus_content h2 {
+        letter-spacing: .8rem;
+    }
+}
+.story span {
+    font-size: 2rem;
+    letter-spacing: .2rem;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+}
+.story p {
+    font-size: 1.6rem;
+    letter-spacing: .2rem;
+    line-height: 2.5rem;
+    text-indent: 3.2rem;
+    margin-bottom: 10px;
+}
+.mission {
+    background-color: var(--color-highlight);
+    padding: 40px 20px;
+    text-align: center;
     margin: 20px 0;
 }
-.section_aboutus .aboutus_pic img {
-    width: 100%;
-    vertical-align: top;
-}
-.section_aboutus span {
+.mission p {
     font-size: 1.6rem;
+    letter-spacing: .1rem;
+    line-height: 2.5rem;
+}
+.mission p:last-child {
+    margin-top: 20px;
+}
+.team {
+    text-align: center; 
+}
+.team-member {
+    margin-bottom: 40px;
+}
+.team-member p {
+    font-size: 1.6rem;
+    letter-spacing: .1rem;
+    line-height: 2.5rem;
+    margin-top: 10px;
+}
+.team-member img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+.values {
+    padding: 40px;
+}
+.value {
+    text-align: center;
+    margin: 60px 0 40px 0;
+}
+.value h3 {
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: .2rem;
+    margin-bottom: 20px;
+}
+.value p {
+    font-size: 1.6rem;
+    letter-spacing: .1rem;
+    line-height: 2.5rem;
+    margin-bottom: 20px;
+}
+.value img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
 }
 /* login */
 .section_login {
@@ -1934,7 +2164,7 @@ section.section_item_desc {
     gap: 40px;
 }
 .popup {
-    /* display: none; */
+    display: none;
     position: fixed;
     z-index: 9999;
     left: 0;
@@ -1964,11 +2194,11 @@ margin-bottom: 10px;
 }
 .popup-content p {
 font-size: 18px;
-margin-bottom: 20px;
+margin: 20px 0 40px 0;
 }
 .popup-content button {
 padding: 10px 20px;
-background-color: #ff5252;
+background-color: var(--color-highlight);
 color: #fff;
 border: none;
 cursor: pointer;
@@ -1976,11 +2206,14 @@ transition: background-color 0.3s;
 }
 
 .popup-content button:hover {
-background-color: #ff1744;
+background-color: var(--color-highlight-hover);
 }
 /* hospitalinfo */
 .section_location h2 {
-    margin-bottom: 20px;
+    margin-bottom: 50px;
+}
+.section_location .container {
+    height: 77vh;
 }
 gmpx-store-locator {
     width: 100%;
@@ -2346,22 +2579,6 @@ gmpx-store-locator {
         background-color: var(--color-highlight-active);
     }
 }
-.checkout {
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
-
-.checkout h2 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.checkout form {
-    display: flex;
-    flex-direction: column;
-}
 
 .payment-mode, .delivery-mode {
     margin-bottom: 20px;
@@ -2427,6 +2644,7 @@ button:hover {
     margin: 0 auto;
     position: relative;
     overflow: hidden;
+    margin-bottom: 30px;
 }
 
 .progress {

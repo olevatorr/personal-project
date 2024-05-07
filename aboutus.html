@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,16 +15,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Doppio+One&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Doppio+One&family=Grandstander:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Doppio+One&family=Grandstander:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     <!-- google font -->
     <script src="https://kit.fontawesome.com/3efa9d30d3.js" crossorigin="anonymous"></script>
     <!-- font awesome -->
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    <!-- gsap animation -->
+    <script src="js/aboutus.js"></script>
+    <script src="js/membership.js"></script>
 </head>
+
 <body>
     <header>
-        <nav>
+        <nav id="nav_bar">
             <div class="container">
                 <div class="nav_logo">
                     <a href="index.html"><img src="img/logo.png" alt="Brood寵物醫療用品"></a>
@@ -49,7 +53,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="index.html">醫療項目</a>
+                        <a href="videocall_reservation.html">醫療項目</a>
                         <label for="sub_health_switch">
                             <input type="checkbox" name="" id="sub_health_switch">
                             ▼
@@ -57,7 +61,7 @@
                         <ul class="submenu">
                             <li><a href="videocall_reservation.html">視訊診療預約</a></li>
                             <li><a href="hospitalinfo.html">附近院所查詢</a></li>
-                            <li><a href="emergencyl_reservation.html">24HR急診服務</a></li>
+                            <li><a href="videocall_reservation.html">24HR急診服務</a></li>
                         </ul>
                     </li>
                     <li><a href="aboutus.html">關於我們</a></li>
@@ -65,19 +69,105 @@
                     <li>
                         <a class="signin" href="signin.html">會員註冊</a>
                     </li>
+                    <li id="memberInfo" style="display: none;">
+                        <a href="member.html">
+                            <i class="fas fa-user"></i>
+                            <span id="userNameDisplay"></span>
+                        </a>
+                    </li>
+                    <li id="logoutBtn" style="display: none;">
+                        <a href="#" onclick="logout()">登出</a>
+                    </li>
                 </ul>
             </div>
         </nav>
     </header>
-    <section class="section_aboutus_banner"></section>
-    <section class="section_aboutus">
+    <section class="section_aboutus_banner">
+        <div class="wrap">
+            <h1>關於我們</h1>
+        </div>
+    </section>
+    <section class="abousus_content">
         <div class="container">
-            <h2>關於我們</h2>
-            <p>我們是一家擁有五間動物醫院的專業機構，提供一站式的寵物醫療服務和寵物用品。無論您需要寵物健康護理或是購買寵物用品，我們都能滿足您的需求。我們的目標是確保每一隻寵物都能獲得最好的照顧，因為我們相信每個寵物都是家庭的一份子。探索我們的網站，了解更多有關我們的資訊和服務！</p>
-            <div class="aboutus_pic">
-                <img src="img/aboutus_content.jpg" alt="">
+            <div class="story row">
+                <div class="col-12 col-md-6">
+                    <h2>我們的故事</h2>
+                    <span>Brood</span>
+                    <p>
+                        是一家擁有五間動物醫院的專業機構,致力於提供一站式的寵物醫療服務和寵物用品。我們的團隊由經驗豐富的獸醫和熱愛動物的專業人士組成,我們相信每個寵物都是獨特的個體,值得獲得最好的照顧和關愛。
+                    </p>
+                    <span>創立 Brood</span>
+                    <p>
+                        的初衷是為了建立一個溫馨、專業和值得信賴的寵物社區,讓每一位寵物主人都能放心地將他們的毛孩交託給我們。我們不僅提供優質的醫療服務,還致力於教育寵物主人如何更好地照顧他們的寵物,提高寵物的生活品質。
+                    </p>
+                    <p>
+                        多年來,我們一直秉持著"愛護動物,用心服務"的理念,為無數的寵物提供了細心呵護。我們的獸醫團隊定期參加專業培訓,緊跟行業最新動態,確保為寵物提供最先進、最有效的醫療方案。同時,我們也與國內外知名的寵物用品品牌建立了長期合作關係,為寵物主人提供優質、安全的寵物用品選擇。
+                    </p>
+                </div>
+                <div class="col-12 col-md-6">
+                    <img src="img/aboutus_content.jpg" alt="About Us" style="width: 100%;">
+                </div>
             </div>
-            <span>Brood 的使命是成為您和您的毛孩的最佳夥伴，無論是在醫療護理還是在生活品質方面。我們致力於建立一個溫馨、專業和值得信賴的寵物社區，與您攜手共創更美好的未來。</span>
+            <div class="row mission">
+                <div class="col-12">
+                    <h2>我們的使命</h2>
+                    <p>Brood 的使命是成為您和您的毛孩的最佳夥伴,無論是在醫療護理還是在生活品質方面。我們致力於建立一個溫馨、專業和值得信賴的寵物社區,與您攜手共創更美好的未來。</p>
+                    <p>我們深信,每一隻寵物都應該得到悉心的照料和關愛。因此,我們竭盡全力為寵物提供最優質的醫療服務,同時也積極推廣責任寵物飼養的理念,鼓勵寵物主人以愛心和耐心對待他們的毛孩。我們相信,只有建立起人與寵物之間的和諧關係,才能真正實現人與自然的和諧共處。
+                    </p>
+                </div>
+            </div>
+            <div class="row team">
+                <div class="col-12">
+                    <h2>我們的團隊</h2>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="team-member">
+                        <img src="img/male_doctor1.jpg" alt="Team Member 1">
+                        <h3>John Wang</h3>
+                        <p>資深獸醫</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="team-member">
+                        <img src="img/male_doctor2.jpg" alt="Team Member 2">
+                        <h3>Jane Lee</h3>
+                        <p>寵物營養師</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="team-member">
+                        <img src="img/female_doctor1.jpg" alt="Team Member 3">
+                        <h3>Ankrea Chang</h3>
+                        <p>寵物訓練師</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row values">
+                <div class="col-12">
+                    <h2>我們的價值觀</h2>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="value">
+                        <img src="img/aboutus_icon1.png" alt="專業">
+                        <h3>專業</h3>
+                        <p>我們擁有專業的獸醫團隊和寵物護理專家,提供最優質的醫療服務和寵物照顧建議。</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="value">
+                        <img src="img/aboutus_icon2.png" alt="愛心">
+                        <h3>愛心</h3>
+                        <p>我們以愛心和耐心對待每一隻寵物,視他們為我們的家人,給予他們最細心的呵護。</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="value">
+                        <img src="img/aboutus_icon3.png" alt="創新">
+                        <h3>創新</h3>
+                        <p>我們持續學習和創新,引進最新的寵物醫療技術和產品,為寵物提供更好的生活品質。</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
     <footer>
@@ -88,7 +178,7 @@
                 </div>
                 <ul>
                     <li><a href="aboutus.html">關於我們</a></li>
-                    <li><a href="#">聯絡我們</a></li>
+                    <li><a href="hospitalinfo.html">聯絡我們</a></li>
                     <li><a href="#">購物須知</a></li>
                     <li><a href="#">醫療須知</a></li>
                     <li class="social_icon">
@@ -99,9 +189,10 @@
                 </ul>
             </div>
             <div class=" footer_copyright">
-                &copy;2024 Brood Pet Group
+                本網站為緯育TibaMe前端工程師班第90期學員專題作品，本平台僅供學習、展示之用。
             </div>
         </div>
     </footer>
 </body>
+
 </html>

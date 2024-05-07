@@ -20,10 +20,35 @@
     <!-- font awesome -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <!-- gsap animation -->
+    <script>
+        const CONFIGURATION = {
+            "locations": [
+            {"title":"中壢-中央寵物診所 (03) 1234 5678","address1":"320台灣桃園市中壢區中央路100號","coords":{"lat":24.96262583647382,"lng":121.19054045092618},"placeId":"ChIJT9NN-JQjaDQRD34kQqCGOUU"},
+            {"title":"桃園-桃園寵物診所 (03) 3456 7890","address1":"330台灣桃園市桃園區南京街60號","coords":{"lat":24.986753001685905,"lng":121.31744967790983},"placeId":"ChIJk_4OxPIfaDQRlbCY2uCi58A"},
+            {"title":"蘆竹-蘆竹寵物醫院 (03) 4567 8901","address1":"338台灣桃園市蘆竹區南崁路120號","coords":{"lat":25.046234460045877,"lng":121.29528957790987},"placeId":"ChIJt8iZbdgfaDQRUFrCiNVGlTE"},
+            {"title":"龍潭-龍潭動物醫院 (03) 2345 6789","address1":"325台灣桃園市龍潭區中興路50號","coords":{"lat":24.876954522682123,"lng":121.24142679325408},"placeId":"ChIJyajDvEc9aDQRUJd90-76PLA"},
+            {"title":"青埔-高鐵站寵物診所 (03) 5678 9012","address1":"320台灣桃園市中壢區高鐵站前西路二段20號","coords":{"lat":25.007416774247524,"lng":121.21944209325409},"placeId":"ElJOby4gMjAsIFNlY3Rpb24gMiwgR2FvdGllemhhbnFpYW4gVyBSZCwgWmhvbmdsaSBEaXN0cmljdCwgVGFveXVhbiBDaXR5LCBUYWl3YW4gMzIwIjASLgoUChIJf7cfH6chaDQRpnHVtSElHkAQFCoUChIJxYP76KYhaDQRKOrcRWOaR4A"}
+            ],
+            "mapOptions": {"center":{"lat":38.0,"lng":-100.0},"fullscreenControl":false,"mapTypeControl":true,"streetViewControl":false,"zoom":10,"zoomControl":true,"maxZoom":17,"mapId":""},
+            "mapsApiKey": "AIzaSyCtk1potMlsQq2bGThScJsdGpIqB0Se0o0",
+            "capabilities": {"input":true,"autocomplete":true,"directions":true,"distanceMatrix":true,"details":false,"actions":false}
+        };
+    </script>
+    <script type="module">
+        document.addEventListener('DOMContentLoaded', async () => {
+            await customElements.whenDefined('gmpx-store-locator');
+            const locator = document.querySelector('gmpx-store-locator');
+            locator.configureFromQuickBuilder(CONFIGURATION);
+        });
+    </script>
+    <script type="module" src="https://unpkg.com/@googlemaps/extended-component-library@0.6"></script>
+    <!-- google map -->
+    <script src="js/reservation service.js"></script>
+    <script src="js/membership.js"></script>
 </head>
 <body>
     <header>
-        <nav>
+        <nav id="nav_bar">
             <div class="container">
                 <div class="nav_logo">
                     <a href="index.html"><img src="img/logo.png" alt="Brood寵物醫療用品"></a>
@@ -49,7 +74,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="index.html">醫療項目</a>
+                        <a href="videocall_reservation.html">醫療項目</a>
                         <label for="sub_health_switch">
                             <input type="checkbox" name="" id="sub_health_switch">
                             ▼
@@ -57,7 +82,7 @@
                         <ul class="submenu">
                             <li><a href="videocall_reservation.html">視訊診療預約</a></li>
                             <li><a href="hospitalinfo.html">附近院所查詢</a></li>
-                            <li><a href="emergencyl_reservation.html">24HR急診服務</a></li>
+                            <li><a href="videocall_reservation.html">24HR急診服務</a></li>
                         </ul>
                     </li>
                     <li><a href="aboutus.html">關於我們</a></li>
@@ -65,21 +90,27 @@
                     <li>
                         <a class="signin" href="signin.html">會員註冊</a>
                     </li>
+                    <li id="memberInfo" style="display: none;">
+                        <a href="member.html">
+                            <i class="fas fa-user"></i>
+                            <span id="userNameDisplay"></span>
+                        </a>
+                    </li>
+                    <li id="logoutBtn" style="display: none;">
+                        <a href="#" onclick="logout()">登出</a>
+                    </li>
                 </ul>
             </div>
         </nav>
-    </header> 
-    <section class="section_videocall_banner">
+    </header>
+    <section class="section_health_banner">
         <div class="container">
-            <div class="videocall_pic">
-                <img src="img/videocall_banner.png" alt="">
-            </div>
+            <h1>醫療服務選擇</h1>
         </div>
     </section>
-    <section class="section_video_reserve_info">
+    <section class="section_reserve_info">
         <div class="container">
             <div class="video_reserve_type">
-                <h2>視訊診療預約</h2>
                 <div class="pet_type">
                     <label class="pet_type_dog">
                         <input type="radio" name="pet_type" id="pet_type_dog">
@@ -90,14 +121,75 @@
                         喵星人
                     </label>
                 </div>
+                <div class="service_type">
+                    <label class="service_type_video">
+                        <input type="radio" name="service_type" id="service_type_video">
+                        視訊診療預約
+                    </label>
+                    <label class="service_type_emergency">
+                        <input type="radio" name="service_type" id="service_type_emergency">
+                        24hr急診服務
+                    </label>
+                </div>
             </div>
+            <h2>基本資料</h2>
             <div class="pet_info">
-                <h2>基本資料</h2>
-                <form class="pet_info_input">
-                    <div class="pet_basis_info">
-                        <div class="input">寵物名字<input type="text" required="required" id="pet_name" placeholder="請輸入寵物名字"></div>
-                        <div class="input">寵物生日<input type="date" required="required" id="pet_birth"></div>
-                        <div class="input">寵物品種<input type="text" placeholder="若不清楚可填米克斯" required="required" id="pet_variety"></div>
+                <form class="pet_info_input" id="video_reserve">
+                    <div class="pet_basis_info row">
+                        <div class="input col-12 col-md-4">
+                            寵物名字
+                            <input type="text" required="required" id="pet_name" placeholder="請輸入寵物名字">
+                        </div>
+                        <div class="input col-12 col-md-4">寵物生日<input type="date" required="required" id="pet_birth"></div>
+                        <div class="input col-12 col-md-4">寵物品種<input type="text" placeholder="若不清楚可填米克斯" required="required" id="pet_variety"></div>
+                    </div>
+                    <div class="pet_vaccine_info row">
+                        <div class="radio col-12 col-md-6">
+                            是否有晶片<input type="radio" name="chip" id="chip_true" value="是">是<input type="radio" name="chip" id="chip_false" value="否">否
+                        </div>
+                        <div class="radio col-12 col-md-6">
+                            一個月內是否接種過疫苗<input type="radio" name="vaccine" id="vaccine_true">是<input type="radio" name="vaccine" id="vaccine_false">否
+                        </div>
+                    </div>
+                    <div class="pet_pic_info">
+                        <span>請提供1~3張照片，可清晰看見寵物狀況或傷口狀況(非必要):</span>
+                        <div class="pet_pics">
+                            <input type="file" name="pet_pic" id="pet_pic" accept="image/*">
+                            <input type="file" name="pet_pic" id="pet_pic" accept="image/*">
+                            <input type="file" name="pet_pic" id="pet_pic" accept="image/*">
+                        </div>
+                    </div>
+                    <div class="pet_desc_info">
+                        請填寫至以下表格，並盡所能描述寵物狀況以利醫師更快速掌握
+                        <textarea name="pet_desc" id="pet_desc" maxlength="1000" placeholder="最長可輸入1000字...."></textarea>
+                    </div>
+                    <div class="pet_info_check">
+                        <div class="radio">
+                            <input type="radio" name="" id="disclaimerCheck"> 是否已經詳讀以下須知(需勾選才可預約)
+                        </div>
+                        <span>- 預約須知 -</span>
+                        <textarea name="disclaimer" id="disclaimer" cols="30" rows="10" readonly>
+1.  技術準備： 在預約視訊診療之前，確保您的設備（如電腦、平板電腦或智能手機）和網絡連接正常運作。測試攝像頭、麥克風和網絡連接，以確保通信暢順。
+2.  隱私保護： 視訊診療涉及敏感信息的傳輸，請確保您處於安全的環境並保護個人隱私。選擇私密且無干擾的地方進行診療，並確保您的設備和網絡連接是安全的。
+3.  準備問題： 在診療前準備一份寵物的病史、症狀描述和問題清單。這將幫助您在診療中更清晰地表達您的關注和問題，並確保獲得最準確的診斷和治療建議。
+4.  環境準備： 為寵物創造一個安靜、無干擾的環境，以確保診療過程順利進行。考慮使用寵物的喜愛玩具或零食來幫助他們保持安靜和冷靜。
+5.  跟隨指示： 在視訊診療過程中，請仔細聽取醫師的建議和指示。確保您理解診療計劃和治療建議，並按照醫師的指示進行後續的行動和治療。
+6.  預約後續： 如果醫師建議您需要進一步的診療或檢查，請及時預約並按時前往動物醫院。及時治療對於寵物的健康至關重要，請不要拖延或忽視醫師的建議。
+
+免責聲明： 視訊診療僅提供初步的診斷和治療建議，可能無法取代面對面的實地診療。在某些情況下，醫師可能會建議您前往動物醫院進行進一步的評估和治療。本公司不對視訊診療過程中由於技術問題或其他不可抗力因素引起的任何錯誤或延誤負責。
+                        </textarea>
+                    </div>
+                    <div class="submit">
+                        <input type="submit" value="立即預約">
+                    </div>
+                </form>
+                <form class="pet_info_input" id="emergency_reserve">
+                    <div class="pet_basis_info row">
+                        <div class="input col-12 col-md-4">飼主姓名<input type="text" required="required" name="cust_name" id="cust_name" placeholder="請輸入真實姓名"></div>
+                        <div class="input col-12 col-md-4">飼主電話<input type="tel" required name="cust_phone"  id="cust_phone" pattern="[0][9][0-9]{8}" placeholder="09開頭共10碼"></div>
+                        <div class="input col-12 col-md-4">寵物名字<input type="text" required="required" id="pet_name" placeholder="請輸入寵物名字"></div>
+                        <div class="input col-12 col-md-4">寵物生日<input type="date" required="required" id="pet_birth"></div>
+                        <div class="input col-12 col-md-4">寵物品種<input type="text" placeholder="若不清楚可填米克斯" required="required" id="pet_variety"></div>
                     </div>
                     <div class="pet_vaccine_info">
                         <div class="radio">
@@ -113,27 +205,65 @@
                         <input type="file" name="pet_pic" id="pet_pic" accept="image/*">
                         <input type="file" name="pet_pic" id="pet_pic" accept="image/*">
                     </div>
-                    <div class="pet_desc_info">
-                        請填寫至以下表格，並盡所能描述寵物狀況以利醫師更快速掌握
-                        <textarea name="pet_desc" id="pet_desc" maxlength="1000" placeholder="最長可輸入1000字...."></textarea>
+                    <div class="hospital_choose">
+                        <p>選擇院所</p>
+                        <label for="hospital_01">
+                            <input type="radio" name="hospital_name" id="hospital_01">
+                            中壢-中央寵物診所
+                            <i class="fa-solid fa-location-dot"></i>
+                        </label>
+                        <label for="hospital_02">
+                            <input type="radio" name="hospital_name" id="hospital_02">
+                            桃園-桃園寵物診所
+                            <i class="fa-solid fa-location-dot"></i>
+                        </label>
+                        <label for="hospital_03">
+                            <input type="radio" name="hospital_name" id="hospital_03">
+                            青埔-高鐵站寵物診所
+                            <i class="fa-solid fa-location-dot"></i>
+                        </label>
+                        <label for="hospital_04">
+                            <input type="radio" name="hospital_name" id="hospital_04">
+                            龍潭-龍潭動物醫院
+                            <i class="fa-solid fa-location-dot"></i>
+                        </label>
+                        <label for="hospital_05">
+                            <input type="radio" name="hospital_name" id="hospital_05">
+                            蘆竹-蘆竹寵物醫院
+                            <i class="fa-solid fa-location-dot"></i>
+                        </label>
+                    </div>
+                    <div class="location_info">
+                        <div id="openMap">查詢院所位置<i class="fa-regular fa-map"></i></div>
+                        <div class="googlemap">
+                            <gmpx-api-loader key="AIzaSyCtk1potMlsQq2bGThScJsdGpIqB0Se0o0" solution-channel="GMP_QB_locatorplus_v10_cABD"></gmpx-api-loader>
+                            <gmpx-store-locator map-id="DEMO_MAP_ID"></gmpx-store-locator>
+                        </div>
                     </div>
                     <div class="pet_info_check">
                         <div class="radio">
-                            <input type="radio" name="" id=""> 是否同意儲存此次資料至您的帳號
+                            <input type="radio" name="" id="disclaimerCheck"> 是否已經詳讀以下須知
                         </div>
-                        <div class="radio">
-                            <input type="radio" name="" id=""> 是否已經詳讀以下須知
-                        </div>
+                        <span>-  預約須知  -</span>
                         <textarea name="disclaimer" id="disclaimer" cols="30" rows="10" readonly>
--預約須知-
-1.  技術準備： 在預約視訊診療之前，確保您的設備（如電腦、平板電腦或智能手機）和網絡連接正常運作。測試攝像頭、麥克風和網絡連接，以確保通信暢順。
-2.  隱私保護： 視訊診療涉及敏感信息的傳輸，請確保您處於安全的環境並保護個人隱私。選擇私密且無干擾的地方進行診療，並確保您的設備和網絡連接是安全的。
-3.  準備問題： 在診療前準備一份寵物的病史、症狀描述和問題清單。這將幫助您在診療中更清晰地表達您的關注和問題，並確保獲得最準確的診斷和治療建議。
-4.  環境準備： 為寵物創造一個安靜、無干擾的環境，以確保診療過程順利進行。考慮使用寵物的喜愛玩具或零食來幫助他們保持安靜和冷靜。
-5.  跟隨指示： 在視訊診療過程中，請仔細聽取醫師的建議和指示。確保您理解診療計劃和治療建議，並按照醫師的指示進行後續的行動和治療。
-6.  預約後續： 如果醫師建議您需要進一步的診療或檢查，請及時預約並按時前往動物醫院。及時治療對於寵物的健康至關重要，請不要拖延或忽視醫師的建議。
+1.  緊急情況： 本醫院提供24小時急診服務，適用於寵物的緊急醫療需求。如果您的寵物出現以下情況之一，請立即致電我們的急診熱線：
+    ．嚴重的外傷或創傷
+    ．呼吸困難或窒息
+    ．中毒或攝入異物
+    ．過度嘔吐或腹瀉
+    ．突然昏迷或意識模糊
+    ．嚴重的疼痛或不適
+2.  提前準備： 在前往急診前，請盡可能提供寵物的病史和任何現有醫療記錄。這將有助於醫師更快速地進行評估和治療。
+3.  交通安排： 請提前安排好前往醫院的交通方式，確保您能夠及時到達。如果可能，請在前往醫院的路上與醫院聯繫，以便他們可以提前做好準備。
+4.  醫療費用： 急診服務可能會產生額外的醫療費用。請在前往急診時了解相關費用的支付方式和政策。
 
-免責聲明： 視訊診療僅提供初步的診斷和治療建議，可能無法取代面對面的實地診療。在某些情況下，醫師可能會建議您前往動物醫院進行進一步的評估和治療。本公司不對視訊診療過程中由於技術問題或其他不可抗力因素引起的任何錯誤或延誤負責。
+免責聲明：
+    ．急診服務僅適用於緊急情況，不適用於非緊急情況或例行檢查。
+    ．醫院將盡力提供最優質的急診醫療服務，但無法保證治療結果。
+    ．由於急診服務的性質，可能無法提供事先的評估或預測，因此結果可能有所不同。
+    ．醫院不對因自然災害、技術故障或其他不可抗力因素而導致的延誤或錯誤負責。
+
+請閱讀並理解以上注意事項和免責聲明，以確保在寵物急診時能夠做出適當的決定並獲得最佳的醫療護理。
                         </textarea>
                     </div>
                     <div class="submit">
@@ -141,8 +271,16 @@
                     </div>
                 </form>
             </div>
+            
         </div>
     </section>
+    <div id="errorPopup" class="popup">
+        <div class="popup-content">
+            <i class="fa-solid fa-circle-check"></i>
+            <p id="errorText">預約成功!</p>
+            <button id="closePopup">確定</button>
+        </div>
+    </div>
     <footer>
         <div class="container">
             <div class="footer_info">
@@ -151,7 +289,7 @@
                 </div>
                 <ul>
                     <li><a href="aboutus.html">關於我們</a></li>
-                    <li><a href="#">聯絡我們</a></li>
+                    <li><a href="hospitalinfo.html">聯絡我們</a></li>
                     <li><a href="#">購物須知</a></li>
                     <li><a href="#">醫療須知</a></li>
                     <li class="social_icon">
@@ -162,7 +300,7 @@
                 </ul>
             </div>
             <div class=" footer_copyright">
-                &copy;2024 Brood Pet Group
+                本網站為緯育TibaMe前端工程師班第90期學員專題作品，本平台僅供學習、展示之用。
             </div>
         </div>
     </footer>

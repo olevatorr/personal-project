@@ -1,4 +1,8 @@
 window.addEventListener('load', function (){
+    window.addEventListener('scroll', () => {
+        aosNav();
+    })
+
     const savedCartItems = localStorage.getItem('cartItems');
 
     if (savedCartItems) {
@@ -117,3 +121,13 @@ function calcDiscount() {
     document.querySelector('#totalAmount').textContent = finalAmount.toLocaleString().toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
     document.querySelector('#Popup').style.display = 'block';
 }
+
+
+function aosNav() {
+    let navBar = document.getElementById("nav_bar");
+    if (window.scrollY === 0) {
+        navBar.style.backgroundColor = "rgba(0,0,0,0)";
+    } else {
+        navBar.style.backgroundColor = "#fff";
+    }
+};
