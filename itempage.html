@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,16 +15,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Doppio+One&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Doppio+One&family=Grandstander:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Doppio+One&family=Grandstander:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     <!-- google font -->
     <script src="https://kit.fontawesome.com/3efa9d30d3.js" crossorigin="anonymous"></script>
     <!-- font awesome -->
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    <!-- gsap animation -->
+    <script src="js/shoppingCart.js"></script>
+    <script src="js/membership.js"></script>
+    <script src="js/itempage.js"></script>
 </head>
+
 <body>
     <header>
-        <nav>
+        <nav id="nav_bar">
             <div class="container">
                 <div class="nav_logo">
                     <a href="index.html"><img src="img/logo.png" alt="Brood寵物醫療用品"></a>
@@ -65,53 +70,94 @@
                     <li>
                         <a class="signin" href="signin.html">會員註冊</a>
                     </li>
+                    <li id="memberInfo" style="display: none;">
+                        <a href="member.html">
+                            <i class="fas fa-user"></i>
+                            <span id="userNameDisplay"></span>
+                        </a>
+                    </li>
+                    <li id="logoutBtn" style="display: none;">
+                        <a href="#" onclick="logout()">登出</a>
+                    </li>
                 </ul>
             </div>
         </nav>
-    </header> 
+    </header>
+    <div id="shoppingCart">
+        <div id="cartQty">12</div>
+        <i id="cartIcon" class="fa-solid fa-cart-shopping"></i>
+        <div class="cart_content">
+            <i id="closeCart" class="fa-regular fa-circle-xmark"></i>
+            <ul class="cart_items">購物車
+                <li>
+                    <span>產品名稱</span>
+                    <span>NT$ 90</span>
+                    <span>數量:</span>
+                    <div class="cart_item_qty">
+                        <i class="fa-solid fa-minus"></i>
+                        <span class="cart_qty">1</span>
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
+                    <span class="cart_item_amount">NT$ 90</span>
+                    <i class="fa-regular fa-trash-can"></i>
+                </li>
+            </ul>
+            <div class="cart_total">
+                <button id="checkOut">立即結帳</button>
+                <p>NT$ </p>
+                <span class="total_amount">6,150</span>
+            </div>
+        </div>
+    </div>
     <section class="section_item_info">
         <div class="container">
             <div class="row">
-                    <div class="item_pics col-5">
-                        <div class="row">
-                            <div class="item_main_pic col-12">
-                                <img src="img/itempage_main.png" alt="">
-                            </div>
-                            <div class="item_sub_pic col-3">
-                                <div class="item_sub_pics row">
-                                    <div class="col-4">
-                                        <img src="img/itempage_01.png" alt="">
-                                    </div>
-                                    <div class="col-4">
-                                        <img src="img/itempage_02.png" alt="">
-                                    </div>
-                                    <div class="col-4">
-                                        <img src="img/itempage_03.png" alt="">
-                                    </div>
+                <div class="item_pics col-12 col-md-5">
+                    <div class="row">
+                        <div class="item_main_pic col-12">
+                            <img id="mainImg" src="img/product_images/dog_feed_main.jpg" alt="">
+                        </div>
+                        <div class="item_sub_pic col-3">
+                            <div class="item_sub_pics row">
+                                <div class="col-4">
+                                    <img src="img/product_images/dog_feed_1.png" alt="">
+                                </div>
+                                <div class="col-4">
+                                    <img src="img/product_images/dog_feed_2.jpg" alt="">
+                                </div>
+                                <div class="col-4">
+                                    <img src="img/product_images/dog_feed_3.png" alt="">
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="item_info_txt col-7">
-                        <h1>Brood 健康吃狗糧</h1>
-                        <span>#成幼犬 #1.5KG #多口味</span>
-                        <p class="item_spec">規格: 1.5KG</p>
-                        <div class="item_unit">
-                            <div class="item_price">
-                                NT$ 1399
-                            </div>
-                            <div class="item_quantity">
-                                數量
-                                <input type="number" name="item_qty" id="item_qty" value="1" min="1">
-                            </div>
+                </div>
+                <div class="item_info_txt col-12 col-md-7">
+                    <h1>Brood 健康吃狗糧</h1>
+                    <span>#成幼犬 #1.5KG #多口味</span>
+                    <ul>產品賣點：
+                        <li>Brood健康吃狗糧，選擇關愛！</li>
+                        <li>全面均衡的營養: 確保每一口都充滿著狗狗所需。</li>
+                        <li>天然成分: 不含人工添加物、填充劑或防腐劑。</li>
+                        <li>易於消化: 促進狗狗的消化系統健康。</li>
+                    </ul>
+                    <p class="item_spec">規格: 1.5KG</p>
+                    <div class="item_unit">
+                        <div class="item_price">
+                            NT$ 1399
                         </div>
-                        <div class="item_action">
-                            <button class="button_addcart">
-                            <i class="fa-solid fa-cart-plus"></i>
-                            加入購物車</button>
-                            <a href="checkout.html" class="button_buy">直接購買</a>
+                        <div class="item_quantity">
+                            數量
+                            <input type="number" name="item_qty" id="item_qty" value="1" min="1">
                         </div>
                     </div>
+                    <div class="item_action">
+                        <button class="button_addcart">
+                            <i class="fa-solid fa-cart-plus"></i>
+                            加入購物車</button>
+                        <a href="checkout.html" class="button_buy">直接購買</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -122,22 +168,20 @@
     </section>
     <section class="section_item_desc">
         <div class="container">
-            <h3>詳細資訊</h3>
             <hr>
-            <p>
-                品名：「美味多汁雞肉配方罐頭」<br>
-                敘述：這款美味多汁的雞肉配方罐頭是您寵物的理想之選。精選新鮮雞肉為主要成分，配合營養豐富的蔬菜和維生素，經過嚴格的製造工藝，確保每一口都充滿美味和營養。不含人工添加劑和防腐劑，給予您的毛孩健康又美味的餐食體驗。<br>
-                成分表：<br>
-                ．新鮮雞肉<br>
-                ．紅蘿蔔<br>
-                ．菠菜<br>
-                ．維生素混合物<br>
-                ．礦物質<br>
-                ．水<br>
-                （請注意：此成分表僅為示範，實際成分可能會有所不同，請參考包裝上的標籤獲取正確的信息。）<br>
+            <p>品名：Brood健康吃狗糧</p>
+            <p>重量：1.5kg</p>
+            <p>敘述：這款Brood健康吃狗糧是您毛孩的理想食品選擇。精心挑選的成分組合，包括高品質的蛋白質、天然的蔬果和維生素礦物質，確保您的狗狗獲得全面均衡的營養支持。經過專業配方，每一粒狗糧都注入了愛與關懷，以確保您的寵物健康活力。無添加人工色素、防腐劑或填充劑，給予您的毛孩健康又美味的飲食體驗。
             </p>
+            <ul>成分表：
+                <li>高品質蛋白質源（例如雞肉、羊肉、牛肉等）</li>
+                <li>天然蔬果（例如紅蘿蔔、菠菜、番茄等）</li>
+                <li>維生素礦物質混合物</li>
+                <li>穀類（例如糙米、燕麥等）</li>
+                <li>水（請注意：此成分表僅為示範，實際成分可能會有所不同，請參考包裝上的標籤獲取正確的信</li>息。）
+            </ul>
             <div class="richpic">
-                <img src="img/itempage_richpic.png" alt="">
+                <img src="img/itempage_richpic.jpg" alt="">
             </div>
             <hr>
         </div>
@@ -145,7 +189,7 @@
     <section class="section_other_list">
         <div class="container">
             <h2>其他產品</h2>
-            <div class="row row-cols-5">
+            <div class="row row-cols-2 row-cols-md-3 row-cols-lg-5">
                 <div class="col">
                     <div class="item">
                         <div class="item_pic">
@@ -268,4 +312,5 @@
         </div>
     </footer>
 </body>
+
 </html>

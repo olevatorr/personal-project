@@ -56,7 +56,17 @@ function login(){
         document.getElementById("errorText").innerText = "帳號不可少於6碼"
         return
     }
-    const memberList = JSON.parse(localStorage.getItem('memberList'));
+    const memberList = JSON.parse(localStorage.getItem('memberList')) || [
+        {
+        num: 'a123456',
+        psw: 'a123456',
+        userName: 'Otis',
+        tel: '0912345678',
+        bd: '1994-3-16',
+        email: 'userEmail',
+        addr: 'userAddr',
+        },
+    ];
     const member = memberList.find(function(member) {
         return member.num === loginMemNum && member.psw === loginMemPsw;
     });

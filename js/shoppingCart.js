@@ -40,13 +40,16 @@ window.addEventListener('load', function () {
         button.addEventListener('click', addToCart);
     });
 
-    productListContainer.addEventListener('click', function (event) {
-        const target = event.target;
-        
-        if (target.classList.contains('fa-cart-plus')) {
-            event.preventDefault(); // 阻止<a>標籤的默認行為
-        } 
-    });
+    if(productListContainer){
+
+        productListContainer.addEventListener('click', function (event) {
+            const target = event.target;
+            
+            if (target.classList.contains('fa-cart-plus')) {
+                event.preventDefault(); // 阻止<a>標籤的默認行為
+            } 
+        });
+    }
 });
 
 function addToCart(event) {

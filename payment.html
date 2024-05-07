@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>關於Brood</title>
+    <link rel="icon" href="favicon_io/favicon-16x16.png">
+    <link rel="stylesheet" href="grid.css">
+    <!-- reset -->
+    <link rel="stylesheet" href="style.css">
+    <!-- style -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Doppio+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Doppio+One&family=Grandstander:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- google font -->
+    <script src="https://kit.fontawesome.com/3efa9d30d3.js" crossorigin="anonymous"></script>
+    <!-- font awesome -->
+    <script src="js/products.js"></script>
+    <script src="js/checkout.js"></script>
+    <style>
+        /* CSS 樣式 */
+        body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 20px;
+        }
+        h1 {
+          text-align: center;
+        }
+        .container {
+          max-width: 600px;
+          margin: 0 auto;
+        }
+        .form-group {
+          margin-bottom: 20px;
+        }
+        label {
+          display: block;
+          margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="number"] {
+          width: 100%;
+          padding: 10px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+        }
+        .payment-options,
+        .shipping-options {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+          margin-bottom: 20px;
+        }
+        .payment-option,
+        .shipping-option {
+          flex: 1;
+          padding: 10px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          cursor: pointer;
+        }
+        .payment-option.active,
+        .shipping-option.active {
+          background-color: #f0f0f0;
+        }
+        .credit-card-form {
+          display: none;
+          margin-top: 20px;
+        }
+        .credit-card-form.show {
+          display: block;
+        }
+        .bank-transfer-btn {
+          padding: 10px 20px;
+          background-color: #4CAF50;
+          color: white;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+        }
+        .popup {
+          display: none;
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background-color: white;
+          padding: 20px;
+          border-radius: 4px;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+          z-index: 9999;
+        }
+        .popup.show {
+          display: block;
+        }
+        .total-amount {
+          text-align: right;
+          font-size: 20px;
+          font-weight: bold;
+          margin-top: 20px;
+        }
+        .checkout-btn {
+          display: block;
+          width: 100%;
+          padding: 10px;
+          background-color: #4CAF50;
+          color: white;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          font-size: 18px;
+          margin-top: 20px;
+        }
+        @media screen and (max-width: 600px) {
+          .payment-options,
+          .shipping-options {
+            flex-direction: column;
+          }
+        }
+        </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <div class="nav_logo">
+                    <a href="index.html"><img src="img/logo.png" alt="Brood寵物醫療用品"></a>
+                </div>
+                <input type="checkbox" name="" id="switch">
+                <label class="hb" for="switch">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+                <ul class="navbar_menu">
+                    <li>
+                        <a href="productlist.html">寵物用品</a>
+                        <label for="sub_pet_switch">
+                            <input type="checkbox" name="" id="sub_pet_switch">
+                            ▼
+                        </label>
+                        <ul class="submenu">
+                            <li><a href="productlist.html">狗狗用品</a></li>
+                            <li><a href="productlist.html">貓咪用品</a></li>
+                            <li><a href="productlist.html">保健食品</a></li>
+                            <li><a href="productlist.html">特價專區</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="index.html">醫療項目</a>
+                        <label for="sub_health_switch">
+                            <input type="checkbox" name="" id="sub_health_switch">
+                            ▼
+                        </label>
+                        <ul class="submenu">
+                            <li><a href="videocall_reservation.html">視訊診療預約</a></li>
+                            <li><a href="hospitalinfo.html">附近院所查詢</a></li>
+                            <li><a href="emergencyl_reservation.html">24HR急診服務</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="aboutus.html">關於我們</a></li>
+                    <li><a href="login.html">登入</a></li>
+                    <li>
+                        <a class="signin" href="signin.html">會員註冊</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <h1>結帳頁面</h1>
+        <form>
+          <div class="form-group">
+            <label for="name">姓名:</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">電子郵件:</label>
+            <input type="text" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">手機號碼:</label>
+            <input type="text" id="phone" name="phone" required>
+          </div>
+          <div class="form-group">
+            <label for="address">地址:</label>
+            <input type="text" id="address" name="address" required>
+          </div>
+          <div class="form-group">
+            <label>付款方式:</label>
+            <div class="payment-options">
+              <div class="payment-option" data-payment="cash">貨到付款</div>
+              <div class="payment-option" data-payment="credit-card">信用卡</div>
+              <div class="payment-option" data-payment="bank-transfer">銀行轉帳</div>
+            </div>
+            <div class="credit-card-form">
+              <div class="form-group">
+                <label for="card-number">卡號:</label>
+                <input type="text" id="card-number" name="card-number" required>
+              </div>
+              <div class="form-group">
+                <label for="card-name">持卡人姓名:</label>
+                <input type="text" id="card-name" name="card-name" required>
+              </div>
+              <div class="form-group">
+                <label for="expiration-date">有效期限:</label>
+                <input type="text" id="expiration-date" name="expiration-date" placeholder="MM/YY" required>
+              </div>
+              <div class="form-group">
+                <label for="cvv">CVV:</label>
+                <input type="number" id="cvv" name="cvv" required>
+              </div>
+            </div>
+            <button type="button" class="bank-transfer-btn">銀行轉帳資訊</button>
+          </div>
+          <div class="form-group">
+            <label>配送方式:</label>
+            <div class="shipping-options">
+              <div class="shipping-option" data-shipping="home-delivery">宅配</div>
+              <div class="shipping-option" data-shipping="store-pickup">超商店到店</div>
+            </div>
+          </div>
+          <div class="total-amount">
+            總價: <span id="totalAmount"></span>
+          </div>
+          <button type="submit" class="checkout-btn">確認結帳</button>
+        </form>
+      </div>
+    
+      <div class="popup" id="bankTransferPopup">
+        <h2>銀行轉帳資訊</h2>
+        <p>請將款項轉帳至以下帳號:</p>
+        <p>銀行名稱: XX銀行</p>
+        <p>帳號: 123-456-789</p>
+        <p>戶名: XX公司</p>
+        <button type="button" class="close-btn">關閉</button>
+      </div>
+    <footer>
+        <div class="container">
+            <div class="footer_info">
+                <div class="footer_logo">
+                    <a href="index.html"><img src="img/logo.png" alt=""></a>
+                </div>
+                <ul>
+                    <li><a href="aboutus.html">關於我們</a></li>
+                    <li><a href="#">聯絡我們</a></li>
+                    <li><a href="#">購物須知</a></li>
+                    <li><a href="#">醫療須知</a></li>
+                    <li class="social_icon">
+                        <img src="img/icon_facebook.svg" alt="">
+                        <img src="img/icon_instagram.svg" alt="">
+                        <img src="img/icon_google.svg" alt="">
+                    </li>
+                </ul>
+            </div>
+            <div class=" footer_copyright">
+                &copy;2024 Brood Pet Group
+            </div>
+        </div>
+    </footer>
+    <script>
+    // JavaScript 程式碼
+    const paymentOptions = document.querySelectorAll('.payment-option');
+    const creditCardForm = document.querySelector('.credit-card-form');
+    const bankTransferBtn = document.querySelector('.bank-transfer-btn');
+    const bankTransferPopup = document.getElementById('bankTransferPopup');
+    const closeBtn = document.querySelector('.close-btn');
+    const totalAmountElement = document.getElementById('totalAmount');
+
+    // 從 localStorage 獲取總價
+    const totalAmount = localStorage.getItem('finalAmount');
+    totalAmountElement.textContent = totalAmount;
+
+    paymentOptions.forEach(option => {
+      option.addEventListener('click', () => {
+        paymentOptions.forEach(option => option.classList.remove('active'));
+        option.classList.add('active');
+
+        if (option.dataset.payment === 'credit-card') {
+          creditCardForm.classList.add('show');
+        } else {
+          creditCardForm.classList.remove('show');
+        }
+      });
+    });
+
+    bankTransferBtn.addEventListener('click', () => {
+      bankTransferPopup.classList.add('show');
+    });
+
+    closeBtn.addEventListener('click', () => {
+      bankTransferPopup.classList.remove('show');
+    });
+  </script>
+</body>
+</html>
