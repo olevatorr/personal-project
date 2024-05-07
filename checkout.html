@@ -72,50 +72,39 @@
     <section class="section_cartlist">
         <h2>購物車明細</h2>
         <div class="container">
-            <ul class="cartlist">
-                <li class="cart_item">
-                    <div class="item_pic">
-                        <img src="img/checkout_item01.png" alt="">
-                    </div>
-                    <div class="item_info">
-                        <span class="itemName">絨絨寵物床</span>
-                        <span>規格: <span class="tags">70*90公分</span></span>
-                        <span class="itemPrice">NT$ 300</span>
-                    </div>
-                    <div class="item_qty">
-                        數量:
-                        <div class="qty">
-                            1
+            <div class="row">
+                <ul class="cartlist col-12 col-md-8">
+                </ul>
+                <div class="wrap col-12 col-md-4">
+                    <div class="total_info">
+                        <h3>Total Amount</h3>
+                        <div class="discountArea">
+                            <span>折扣碼</span>
+                            <input type="text" id="enterDiscount">
                         </div>
-                    </div>
-                    <div class="item_price">
-                        NT$ 300
-                    </div>
-                    <i class="fa-regular fa-circle-xmark"></i>
-                </li>
-            </ul>
-            <div class="wrap">
-                <div class="total_info">
-                    <h3>Total Amount</h3>
-                    <div class="discountArea">
-                        <span>折扣碼</span>
-                        <input type="text" id="enterDiscount">
-                    </div>
-                    <div class="discountTotal">
-                        折扣金額: <span id="discountAmount">NT$ 0</span>
-                    </div>
-                    <div class="item_amount">
-                        <span>共 <span id="totalQty">5</span> 樣商品</span>
-                        <span>總金額 : <span id="totalAmount">NT$ 2,370</span></span>
-                    </div>
-                    <div class="item_checkout">
-                        <a href="productlist.html">再逛逛</a>
-                        <input type="submit" value="結帳去">
+                        <div class="discountTotal">
+                            折扣金額: <span id="discountAmount">NT$ 0</span>
+                        </div>
+                        <div class="item_amount">
+                            <span>共 <span id="totalQty">5</span> 樣商品</span>
+                            <span>總金額 : <span id="totalAmount">NT$ 2,370</span></span>
+                        </div>
+                        <div class="item_checkout">
+                            <a href="productlist.html">再逛逛</a>
+                            <input type="submit" value="結帳去">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    <div id="Popup" class="popup">
+        <div class="popup-content">
+            <i class="fa-regular fa-circle-check"></i>
+            <p id="Text">帳號或密碼錯誤,請重新輸入。</p>
+            <button id="closePopup">確定</button>
+        </div>
+    </div>
     <footer>
         <div class="container">
             <div class="footer_info">

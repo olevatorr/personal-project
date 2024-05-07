@@ -99,6 +99,9 @@ nav .navbar_menu a {
     padding: 5px 10px;
     margin: 10px 0px;
 }
+nav .hb {
+    display: flex;
+}
 @media screen and (max-width: 1023px) {
     nav .hb {
         width: 40px;
@@ -286,7 +289,7 @@ section h2 {
 .section_banner video {
     clip-path: inset(0px);
 }
-@media screen and (max-width: 1130px) {
+@media screen and (max-width: 1457px) {
     .section_banner {
         max-width: 100%;
         overflow: hidden;
@@ -302,7 +305,7 @@ section h2 {
         height: 100%;
     }
 }
-@media screen and (min-width: 1131px) {
+@media screen and (min-width: 1458px) {
     .section_banner .banner_video {
         padding-bottom: 56.25%;
         position: relative;
@@ -1527,15 +1530,10 @@ footer ul li + li {
 }
 /* checkout */
 .section_cartlist {
-    padding: 50px 100px;
+    padding: 50px 20px;
     flex-grow: 2;
 }
-.section_cartlist .container {
-    display: flex;
-    justify-content: center;
-    gap: 3vw;
-}
-.section_cartlist ol {
+.section_cartlist ul {
     counter-reset: item;
     list-style-type: none;
     padding-left: 0;
@@ -1554,19 +1552,18 @@ footer ul li + li {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    flex-grow: 2;
 }
 .cart_item {
-    display: flex;
+    display: grid;
     align-items: end;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    grid-template-columns: 5% 20% 40% 16% 15% 4%;
     margin: 10px 0px 0px 0px;
-    padding: 5px;
+    width: 100%;
 }
 .cart_item + .cart_item {
     border-top: 1px solid #ccc;
-}
-.cart_item:nth-child(6) {
-    border-top: none;
 }
 .cart_item i {
     font-size: 1.6rem;
@@ -1579,34 +1576,38 @@ footer ul li + li {
 }
 .cart_item .item_pic {
     background-color: #fff;
-}
-.cart_item .item_pic img {
     width: 100px;
     height: 100px;
+    text-align: center;
+}
+.cart_item .item_pic img {
+    height: 100%;
     vertical-align: top;
 }
 .cart_item .item_info {
     height: 100px;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: flex-end;
     margin-left: 10px;
 }
 .cart_item .item_info span {
-    font-size: 1.6rem;
+    margin-top: 10px;
+    font-size: 1.2rem;
 }
 .cart_item .item_qty {
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     display: flex;
     align-items: center;
-    gap: 15px
+    gap: 5px
 }
 .cart_item .item_qty .qty {
     background-color: #fff;
-    padding: 2px 10px;
+    padding: 1px 5px;
 }
 .cart_item .item_price {
-    font-size: 1.6rem;
+    font-size: 1.2rem;
+    text-align: right;
 }
 .total_info {
     padding: 40px 20px;
@@ -1617,6 +1618,55 @@ footer ul li + li {
     font-weight: bold;
     color: var(--color-highlight-active);
 }
+.item_info span:nth-child(2) {
+    display: none;
+}
+@media screen and (max-width: 587px) {
+    .cart_item {
+        grid-template-columns: 5% 25% 35% 16% 20% 4%;
+    }
+    @media screen and (max-width: 510px) {
+        .cart_item .item_pic {
+            width: 80px;
+            height: 80px;
+            justify-self: center;
+        }
+        .cart_item {
+            grid-template-columns: 5% 30% 30% 20% 14% 1%;
+        }
+    }
+
+}
+@media screen and (max-width: 767px){
+    .cartlist {
+        margin-bottom: 50px;
+    }
+
+}
+@media screen and (min-width: 588px) {
+    .cart_item .item_pic {
+        height: 100px;
+        width: 100px;
+    }
+    .cart_item .item_info span {
+        font-size: 1.6rem;
+    }
+    .cart_item .item_qty {
+        font-size: 1.6rem;
+    }
+    .cart_item .item_price {
+        font-size: 1.6rem;
+    }
+    .item_info span:nth-child(2) {
+        display: block;
+    }
+    .cart_item .item_qty .qty {
+        padding: 2px 10px;
+    }
+    .cart_item .item_qty {
+        gap: 15px
+    }
+}
 .discountArea {
     display: flex;
     justify-content: space-between;
@@ -1626,7 +1676,6 @@ footer ul li + li {
 .discountArea span {
     font-size: 1.6rem;
     margin-right: 10px;
-    text-align: right;
 }
 #enterDiscount {
     width: 60%;
@@ -1857,6 +1906,9 @@ font-size: 40px;
 color: #ff5252;
 margin-bottom: 10px;
 }
+.popup-content i.fa-circle-check {
+    color: #188038;
+}
 .popup-content p {
 font-size: 18px;
 margin-bottom: 20px;
@@ -2072,7 +2124,7 @@ gmpx-store-locator {
     font-size: 1.4rem;
     font-weight: bold;
     color: #fff;
-    transform: translate(50%, -50%);
+    transform: translate(20%, -60%);
 }
 #cartIcon {
     font-size: 3rem;

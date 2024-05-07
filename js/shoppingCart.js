@@ -25,6 +25,7 @@ window.addEventListener('load', function () {
         shoppingCart.style.backgroundColor = '#fff';
     });
 
+    // 購物車 toggle
     const closeCart = document.querySelector('#closeCart');
     closeCart.addEventListener('click', function () {
         cartIcon.style.display = 'block';
