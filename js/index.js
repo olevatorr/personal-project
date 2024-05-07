@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
         width += 20;
         progress.style.width = width + '%';
-        setTimeout(simulateLoading, 500);
+        setTimeout(simulateLoading, 200);
         }
     }
 
