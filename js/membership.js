@@ -169,32 +169,25 @@ function updateNavbar() {
     const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
     
     if (loggedInUser) {
-      // 隱藏 "登入" 和 "會員註冊" 按鈕
         document.querySelector('a[href="login.html"]').parentElement.style.display = 'none';
         document.querySelector('a[href="signin.html"]').parentElement.style.display = 'none';
         
-        // 顯示 member icon、userName 和登出按鈕
         document.getElementById('memberInfo').style.display = 'block';
         document.getElementById('userNameDisplay').textContent = loggedInUser.userName;
         document.getElementById('logoutBtn').style.display = 'block';
     } else {
-        // 顯示 "登入" 和 "會員註冊" 按鈕
-        document.querySelector('a[href="login.html"]').parentElement.style.display = 'block';
-        document.querySelector('a[href="signin.html"]').parentElement.style.display = 'block';
+        document.querySelector('a[href="login.html"]').parentElement.style.display = 'flex';
+        document.querySelector('a[href="signin.html"]').parentElement.style.display = 'flex';
         
-        // 隱藏 member icon、userName 和登出按鈕
         document.getElementById('memberInfo').style.display = 'none';
         document.getElementById('logoutBtn').style.display = 'none';
     }
 }
 
 function logout() {
-    // 從 localStorage 中移除用戶信息
     localStorage.removeItem('loggedInUser');
     
-    // 更新導航欄顯示
     updateNavbar();
     
-    // 其他登出的操作,例如重定向到首頁等...
     window.location.href = 'index.html';
 }

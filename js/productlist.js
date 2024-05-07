@@ -11,14 +11,13 @@ window.addEventListener('load', function () {
     // 生成所有產品的 HTML 內容
     function generateProductHTML(products) {
         return `
-        <div class="row row-cols-2 row-cols-lg-5">
+        <div class="row row-cols-2 row-cols-md-4 row-cols-lg-5">
         ${products.map(createProduct).join('')}
         </div>
         `;
         // join去除","
     }
 
-    // 生成單個產品的 HTML 內容
     function createProduct(product) {
         const { itemName, tag, img, price } = product;
         const tagList = tag.split(' ');
@@ -41,7 +40,6 @@ window.addEventListener('load', function () {
         `;
     }
 
-    // 篩選產品
     function filterProducts() {
         const selectedPet = document.querySelector('.filter_type button.active')?.textContent;
         // ?.判斷是否有值可取，若無也不會導致null/undefined而無法繼續運作
