@@ -2256,9 +2256,6 @@ background-color: var(--color-highlight-hover);
 .section_location h2 {
     margin-bottom: 50px;
 }
-.section_location .container {
-    height: 77vh;
-}
 gmpx-store-locator {
     width: 100%;
     height: 500px;
