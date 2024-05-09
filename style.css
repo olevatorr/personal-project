@@ -782,9 +782,6 @@ section h2 {
 .news_card {
     margin-bottom: 20px;
 }
-.news_card .news_title h4 {
-    letter-spacing: .2rem;
-}
 .news_date .date {
     font-size: 4rem;
     font-weight: bold;
@@ -795,8 +792,15 @@ section h2 {
     background-color: var(--color-highlight);
     padding: 5px 5px;
 }
-.news_date .news_title {
-    margin: 20px 0;
+.news_content .news_title {
+    font-size: 1.6rem;
+    letter-spacing: .2rem;
+    line-height: 2rem;
+}
+@media screen and (max-width: 767px) {
+    .news_content .news_title {
+        margin-top: 10px;
+    }
 }
 .news_pic img {
     width: 100%;
@@ -1409,6 +1413,10 @@ section.section_product_list {
     margin: 40px 0;
     font-size: 2.4rem;
 }
+.reseve_desc {
+    text-align: center;
+    font-size: 1.6rem;
+}
 .pet_info_input input[type="text"], .pet_info_input input[type="date"], .pet_info_input input[type="tel"]{
     padding: 5px;
     border: none;
@@ -1966,8 +1974,8 @@ section.section_item_desc {
 }
 /* about us */
 .section_aboutus_banner {
-    height: 30vh;
-    background-image: linear-gradient(to bottom, #f9f4f100 0%, #f9f4f100 80%, #F9F4F1), url(img/aboutus_banner.jpg);
+    height: 40vh;
+    background-image: linear-gradient(to bottom, #fff 0% ,#f9f4f100 20%, #f9f4f100 80%, #F9F4F1), url(img/aboutus_banner.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position-y: 10%;
@@ -2433,6 +2441,9 @@ gmpx-store-locator {
     z-index: 10;
     visibility: hidden;
     cursor: pointer;
+    max-width: 38px;
+    max-height: 33px;
+    transition: .3s;
 }
 #shoppingCart:has(li) {
     visibility: visible;

@@ -23,6 +23,8 @@ window.addEventListener('load', function () {
         cartContent.style.display = 'block';
         cartQty.style.display = 'none';
         shoppingCart.style.backgroundColor = '#fff';
+        shoppingCart.style.maxWidth = '1000px';
+        shoppingCart.style.maxHeight = '1000px';
     });
 
     // 購物車 toggle
@@ -32,6 +34,8 @@ window.addEventListener('load', function () {
         cartContent.style.display = 'none';
         cartQty.style.display = 'flex';
         shoppingCart.style.backgroundColor = 'var(--color-highlight)'
+        shoppingCart.style.maxWidth = '38px';
+        shoppingCart.style.maxHeight = '33px';
     });
 
     // 添加產品到購物車
@@ -162,10 +166,13 @@ function removeFromCart(itemName) {
         cartItems.splice(itemIndex, 1); // 從購物車陣列中移除該項目
         updateCartUI();
         saveCartToLocalStorage(); // 將購物車數據保存到 localStorage
+        if (itemIndex === 0) {
+            document.querySelector('#cartIcon').style.display = 'block';
+            document.querySelector('.cart_content').style.display = 'none';
+            cartQty.style.display = 'flex';
+            shoppingCart.style.backgroundColor = 'var(--color-highlight)';
+        }
     }
-
-    const checkli = document.querySelector('#shoppingCart ul li');
-    (!checkli) ? cartContent.display = 'none' : null;
 }
 
 function changeQuantity(event, itemName) {
