@@ -111,10 +111,6 @@ function aosWhyUsIcons() {
                 whyUsCard[i].style.transform = 'translateY(100px)';
             }, 500 * i)
         }
-    } else {
-        for (let j = 0; j < whyUsCard.length; j++) {
-            whyUsCard[j].style.transform = 'translateY(300px)';
-        }
     }
 }
 
