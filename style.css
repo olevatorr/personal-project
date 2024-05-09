@@ -1416,6 +1416,7 @@ section.section_product_list {
 .reseve_desc {
     text-align: center;
     font-size: 1.6rem;
+    margin: 20px 0;
 }
 .pet_info_input input[type="text"], .pet_info_input input[type="date"], .pet_info_input input[type="tel"]{
     padding: 5px;
